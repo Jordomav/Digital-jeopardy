@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Http\Requests;
 use App\Category;
 use App\Question;
 use DB;
+use App;
 
 class CategoryController extends Controller
 {
@@ -21,7 +24,12 @@ class CategoryController extends Controller
         return redirect('/');
     }
 
+//    public function show(Category $category){
+//        return view('addQuestions', compact('category'));
+//    }
+
     public function show(Category $category){
         return view('addQuestions', compact('category'));
+//        return $card;
     }
 }
