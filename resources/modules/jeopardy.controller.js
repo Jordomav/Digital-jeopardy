@@ -8,7 +8,11 @@
 
             var vm = this;
 
-            vm.categories = '';
+            vm.categories = [];
+
+            vm.getCategories = function($http){
+                vm.get('')
+            }
         })
 
 }());
