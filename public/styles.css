@@ -33,3 +33,10 @@ body {
     padding-top: 20px;
     border: solid 1px black;
 }
+
+.question {
+    font-family: "Times New Roman", sans-serif;
+    color: #fff;
+    font-size: 80px;
+    text-align: center;
+}
