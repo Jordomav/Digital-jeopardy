@@ -1,0 +1,21 @@
+body {
+    background-color: #060CE9;
+}
+.main {
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 175px;
+    text-align: center;
+    color: #FFD700;
+}
+
+.start {
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 75px;
+    text-align: center;
+    color: #FFD700;
+}
+
+.start:hover {
+    text-decoration: none;
+    color: #FFD700;
+}

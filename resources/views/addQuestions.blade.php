@@ -24,6 +24,7 @@
                 <h3>Image:</h3>
                 <img src="/img/{{$image->image}}" alt="" style="width: 300px;">
                 <h3>Answer:</h3><h4>{{$image->answer}}</h4>
+                <hr>
             @endforeach
             <form method="POST" action="/add/{{$category->id}}/img" enctype="multipart/form-data">
                 {{ csrf_field() }}

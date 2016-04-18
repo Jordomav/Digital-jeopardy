@@ -17,3 +17,5 @@ Route::get('show/{category}', 'CategoryController@show');
 
 Route::post('add/{category}/new', 'QuestionController@store');
 Route::post('add/{category}/img', 'QuestionController@image');
+
+Route::get('/play', 'GameController@index');
