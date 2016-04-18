@@ -23,7 +23,7 @@ class CategoryController extends Controller
         $category->save();
         return redirect('/');
     }
-    
+
 
     public function show(Category $category){
         return view('addQuestions', compact('category'));

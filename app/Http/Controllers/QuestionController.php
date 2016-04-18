@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Question;
 use DB;
+use App\Image;
 
 class QuestionController extends Controller
 {
@@ -15,6 +16,17 @@ class QuestionController extends Controller
         $question->question = $request->question;
         $question->answer = $request->answer;
         $category->questions()->save($question);
+        return back();
+    }
+
+    public function image(Category $category, Request $request){
+        $image = new Image;
+        $filename = random_int(100, 999);
+        $image->image = $filename ;
+        $request->file('image');
+        $request->file('image')->move('img/', $filename);
+        $image->answer = $request->answer;
+        $category->images()->save($image);
         return back();
     }
 }
