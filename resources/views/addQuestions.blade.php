@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+    <body style="background-color: white;">
     <div class="container">
         <div class="row">
             <h1>{{$category->title}}</h1>
@@ -38,4 +39,6 @@
         <a href="/">Go back</a>
         <br><br>
     </div>
+    </body>
+
 @endsection
