@@ -1,0 +1,23 @@
+{
+  "name": "Jeopardy",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Jordomav <jordomav@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Jordomav/DigitalJeopardy-",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.5",
+    "jquery": "^2.2.3"
+  }
+}
