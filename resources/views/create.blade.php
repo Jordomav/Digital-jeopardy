@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 <div class="container">
     <div class="row">
         <h1>Create your Jeopardy game.</h1>
+        <h2>Create 6 categories</h2>
         <div>
             @foreach($categories as $category)
                 <p><a href="/show/{{$category->id}}">{{$category->title}}</a></p>

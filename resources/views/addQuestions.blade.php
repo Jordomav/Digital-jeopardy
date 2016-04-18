@@ -1,14 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
     <div class="container">
         <div class="row">
             <h1>{{$category->title}}</h1>
+            <h3>Create only a total of 5 questions per category</h3>
             @foreach($category->questions as $question)
                 <h3>Question:</h3><h4>{{$question->question}}</h4>
                 <h3>Answer:</h3><h4>{{$question->answer}}</h4>
                 <hr>
             @endforeach
-
+            @foreach($category->images as $image)
+                <h3>Image:</h3>
+                <img src="/img/{{$image->image}}" alt="" style="width: 300px;">
+                <h3>Answer:</h3><h4>{{$image->answer}}</h4>
+                <hr>
+            @endforeach
             <form method="POST" action="/add/{{$category->id}}/new">
                 {{ csrf_field() }}
                 <h3>Question:</h3>
@@ -20,12 +26,6 @@
 
             <h2>Or</h2>
 
-            @foreach($category->images as $image)
-                <h3>Image:</h3>
-                <img src="/img/{{$image->image}}" alt="" style="width: 300px;">
-                <h3>Answer:</h3><h4>{{$image->answer}}</h4>
-                <hr>
-            @endforeach
             <form method="POST" action="/add/{{$category->id}}/img" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <h3>Image:</h3>
