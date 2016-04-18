@@ -11,7 +11,7 @@
             vm.categories = [];
 
             vm.getCategories = function($http){
-                vm.get('')
+                return $http.get('')
             }
         })
 
