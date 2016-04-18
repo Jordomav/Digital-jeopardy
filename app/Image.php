@@ -3,8 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
-class Image extends Model
+
+class Image extends Eloquent
 {
     protected $fillable = ['image', 'answer'];
     public function categories() {
