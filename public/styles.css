@@ -16,6 +16,11 @@ body {
     margin-top: 150px;
 }
 
+.start:hover {
+    background-color: #233cff;
+    cursor: pointer;
+}
+
 .category {
     font-family: 'Fjalla One', sans-serif;
     color: #FFFFFF;
