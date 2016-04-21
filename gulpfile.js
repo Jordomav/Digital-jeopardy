@@ -19,7 +19,8 @@ gulp.task('js-deps', function () {
             './bower_components/angular-ui/angular-ui.js',
             './bower_components/angular-bootstrap/ui-bootstrap.js',
             './bower_components/bootstrap/dist/js/bootstrap.js',
-            './bower_components/angular-xeditable/dist/js/xeditable.js'
+            './bower_components/angular-xeditable/dist/js/xeditable.js',
+            './bower_components/vue/dist/vue.js'
         ])
         .pipe(concat('deps.js'))
         .pipe(ngAnnotate())

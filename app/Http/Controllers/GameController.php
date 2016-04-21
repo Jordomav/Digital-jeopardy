@@ -12,7 +12,6 @@ class GameController extends Controller
 {
     public function index(){
         $categories = Category::all();
-        $images = Image::all();
         $questions = Question::all();
         return view('index', compact('categories', 'images', 'questions'));
     }

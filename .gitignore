@@ -4,3 +4,4 @@ public/build
 .env
 .idea
 bower_components
+public/img
