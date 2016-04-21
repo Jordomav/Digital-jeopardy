@@ -1,0 +1,1 @@
+{ "options" : { "create" : "questions" }, "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "jeopardy.questions", "name" : "_id_" } ] }
