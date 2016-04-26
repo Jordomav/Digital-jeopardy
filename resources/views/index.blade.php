@@ -5,8 +5,10 @@
         <h1 class="main">Jeopardy!</h1>
     </div>
     <div class="row">
-        <h4 class="start">PLAY</h4>
+        <button class="start" data-ng-click="startGame()">PLAY</button>
     </div>
+
+
 </div>
     {{--<div class="container">--}}
         {{--<div class="row">--}}

@@ -8,11 +8,9 @@
 
             var vm = this;
 
-            vm.categories = [];
+            vm.startGame = function () {
 
-            vm.getCategories = function($http){
-                return $http.get('')
-            }
-        })
+            };
+        });
 
 }());

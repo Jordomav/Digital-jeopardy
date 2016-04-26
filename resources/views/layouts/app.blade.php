@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/build/css/app.css">
         <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     </head>
-    <body>
+    <body data-ng-app="gameApp" data-ng-controller="gameCtrl">
         @yield('content')
     </body>
     <script src="/build/js/deps.js"></script>
