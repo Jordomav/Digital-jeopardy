@@ -20,3 +20,5 @@ Route::post('add/{category}/img', 'QuestionController@image');
 
 Route::get('/play', 'GameController@index');
 Route::get('get-categories', 'GameController@show');
+
+Route::get('display/{category}/{question}', 'GameController@showQuestion');
