@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Question;
 use DB;
+use Redis;
 
 class GameController extends Controller
 {
