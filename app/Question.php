@@ -13,4 +13,8 @@ class Question extends Eloquent
         return $this->belongsTo(Category::class);
     }
 
+
+    public function hasImage(){
+
+    }
 }

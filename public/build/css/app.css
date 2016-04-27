@@ -1,14 +1,12 @@
 body {
   background-color: #060CE9;
 }
-
 .main {
   font-family: 'Fjalla One', sans-serif;
   font-size: 175px;
   text-align: center;
   color: #FFD700;
 }
-
 .start {
   font-family: 'Fjalla One', sans-serif;
   font-size: 75px;
@@ -16,20 +14,17 @@ body {
   color: #FFD700;
   margin-top: 150px;
 }
-
 .start:hover {
   background-color: #233cff;
   cursor: pointer;
 }
-
 .category {
   font-family: 'Fjalla One', sans-serif;
   color: #FFFFFF;
   font-size: 25px;
   text-align: center;
 }
-
-.value{
+.value {
   font-family: 'Fjalla One', sans-serif;
   color: #FFD700;
   font-size: 40px;
@@ -39,14 +34,12 @@ body {
   padding-top: 20px;
   border: solid 1px black;
 }
-
 .question {
   font-family: "Times New Roman", sans-serif;
   color: #fff;
   font-size: 80px;
   text-align: center;
 }
-
-.imgQuestion{
-  max-width:900px;
+.imgQuestion {
+  max-width: 900px;
 }

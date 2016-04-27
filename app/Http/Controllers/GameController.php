@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Question;
 use DB;
+use Redis;
 
 class GameController extends Controller
 {
@@ -21,6 +22,6 @@ class GameController extends Controller
 
     public function showQuestion(Category $category, $question_id){
         $question = $category->questions()->where('_id', $question_id)->first();
-        return $question;
+        return view('question', compact('question'));
     }
 }
