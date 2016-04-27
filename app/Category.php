@@ -14,8 +14,4 @@ class Category extends Eloquent
         return $this->hasMany(Question::class);
     }
 
-    public function images(){
-        return $this->hasMany(Image::class);
-    }
-
 }
