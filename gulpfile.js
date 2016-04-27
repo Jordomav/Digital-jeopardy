@@ -44,7 +44,7 @@ gulp.task('css-deps', function () {
 });
 
 gulp.task('js', function () {
-    var baseDir = __dirname + '/resources/js',
+    var baseDir = __dirname + '/resources/modules',
         outputDir = __dirname + '/public/build/js',
         outputFilename = 'app.js';
 

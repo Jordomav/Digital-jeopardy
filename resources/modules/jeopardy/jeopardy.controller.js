@@ -8,9 +8,6 @@
 
             var vm = this;
 
-            vm.startGame = function () {
-
-            };
         });
 
 }());
