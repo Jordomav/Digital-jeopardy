@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h1 class="question">
+            <h1 class="">
                 {{$category->questions}}
             </h1>
         </div>
