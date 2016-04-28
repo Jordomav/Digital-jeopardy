@@ -10,7 +10,10 @@
             </h1>
         </div>
         <div class="row">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Show Answer</button>
+            <button type="button" class="btn btn-success " data-toggle="modal" data-target=".bs-example-modal-lg">Show Answer</button>
+            <div class="col-lg-1">
+                <a href="/get-categories" class="back">Go Back</a>
+            </div>
         </div>
     </div>
 

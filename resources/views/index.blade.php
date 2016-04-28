@@ -5,7 +5,7 @@
         <h1 class="main">Jeopardy!</h1>
     </div>
     <div class="row">
-        <a class="start" href="/get-categories">PLAY</a>
+        <div class="start" ><a href="/get-categories">PLAY</a></div>
     </div>
 </div>
 @endsection
