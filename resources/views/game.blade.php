@@ -6,7 +6,9 @@
                 <div class="col-xs-2">
                     <div class="category">{{$category->title}}</div>
                     @foreach($category->questions->slice(0, 5) as $index => $question)
-                        <a href="/display/{{$category->id}}/{{$question->id}}" class="value">${{($index+1)*100}}</a>
+                       <div class="value">
+                           <a href="/display/{{$category->id}}/{{$question->id}}">${{($index+1)*100}}</a>
+                       </div>
                     @endforeach
                 </div>
             @endforeach
