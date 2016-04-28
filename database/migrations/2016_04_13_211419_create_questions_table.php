@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
+use Jenssegers\Mongodb\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateQuestionsTable extends Migration
@@ -12,12 +12,12 @@ class CreateQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('category_id');
-            $table->string('question');
-            $table->string('answer');
-            $table->timestamps();
+        Schema::create('questions', function (Blueprint $collection) {
+            $collection->increments('id');
+            $collection->integer('category_id');
+            $collection->string('question');
+            $collection->string('answer');
+            $collection->timestamps();
         });
     }
 
