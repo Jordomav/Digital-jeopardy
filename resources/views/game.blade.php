@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.jeopardy')
 @section('content')
     <div class="container" data-ng-app="jeopardyApp" data-ng-controller="jeopardyController as game">
         <div class="row">

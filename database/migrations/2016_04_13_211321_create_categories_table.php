@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
+use Jenssegers\Mongodb\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateCategoriesTable extends Migration
@@ -12,10 +12,10 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->timestamps();
+        Schema::create('categories', function (Blueprint $collection) {
+            $collection->increments('id');
+            $collection->string('title');
+            $collection->timestamps();
         });
     }
 
