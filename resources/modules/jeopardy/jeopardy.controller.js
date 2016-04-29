@@ -1,4 +1,3 @@
-
 (function()
 {
     'use strict';
@@ -8,6 +7,10 @@
 
             var vm = this;
 
-        });
+            vm.getCategories = function () {
+                return $http.get('get-categories');
+            };
 
+        });
+    
 }());
