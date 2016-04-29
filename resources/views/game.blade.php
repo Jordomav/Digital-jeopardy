@@ -3,8 +3,8 @@
     <div class="container" data-ng-app="jeopardyApp" data-ng-controller="jeopardyController as game">
         <div class="row">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal">
-                modal
+            <button type="button" class="btn btn-primary btn-lg" id="buttonClick" data-toggle="modal">
+                Modal
             </button>
 
             <!-- Modal -->
@@ -25,9 +25,9 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('modal').addEventListener('click', function( e ) {
+            document.getElementById('buttonClick').addEventListener('click', function( e ) {
                 Custombox.open({
-                    target: '.modal',
+                    target: '#modal',
                     effect: 'push'
                 });
                 e.preventDefault();
