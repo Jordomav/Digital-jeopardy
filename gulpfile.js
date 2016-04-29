@@ -15,12 +15,12 @@ gulp.task('js-deps', function () {
     gulp.src([
             './bower_components/jquery/dist/jquery.js',
             './bower_components/lodash/lodash.js',
+            './custombox-master/src/js/custombox.js',
             './bower_components/angular/angular.js',
             './bower_components/angular-ui/angular-ui.js',
             './bower_components/angular-bootstrap/ui-bootstrap.js',
             './bower_components/bootstrap/dist/js/bootstrap.js',
-            './bower_components/angular-xeditable/dist/js/xeditable.js',
-            './custombox-master/src/js/custombox.js'
+            './bower_components/angular-touch/angular-touch.js'
         ])
         .pipe(concat('deps.js'))
         .pipe(ngAnnotate())

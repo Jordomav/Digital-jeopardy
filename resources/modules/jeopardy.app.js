@@ -2,6 +2,6 @@
 {
     'use strict';
 
-    angular.module('jeopardyApp', []);
+    angular.module('jeopardyApp', ['ngTouch']);
 
 }());

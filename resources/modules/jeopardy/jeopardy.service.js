@@ -27,6 +27,21 @@
             function getGameData() {
                 return $http.get('get-categories');
             }
+
+
+            vm.selectQuestion = function (question) {
+                question.selected = true;
+
+                Custombox.open({
+                    target: '#modal',
+                    effect: 'push'
+                });
+            };
+
+            vm.returnToGameboard = function () {
+                Custombox.close();
+            };
+
         });
 
 

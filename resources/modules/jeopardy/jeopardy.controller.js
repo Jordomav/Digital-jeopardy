@@ -51,8 +51,16 @@
             }
 
             vm.selectQuestion = function (question) {
-                question.selected = true;
-                console.log(question);
+                vm.selectedQuestion = question;
+                Jeopardy.selectQuestion(question);
+            };
+
+            vm.toggleShowAnswer = function () {
+                vm.selectedQuestion.showAnswer = !(vm.selectedQuestion.showAnswer);
+            };
+
+            vm.returnToGameboard = function () {
+                Jeopardy.returnToGameboard();
             };
         });
 

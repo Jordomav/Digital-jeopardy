@@ -52,6 +52,7 @@ body {
   font-size: 100px;
   text-align: center;
   margin-top: 15%;
+  text-shadow: 5px 5px 9px #0e0e0e;
 
   img {
     margin-top: -15% !important;
@@ -65,4 +66,36 @@ body {
 .back:hover {
   text-decoration: none;
   color:#FFD700;
+}
+
+// Reset modal styles to make it look like we aren't using a modal.
+.custombox-overlay,
+.modal-content {
+  background-color: #060ce9 !important;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+
+.custombox-modal-push {
+  padding-top: 190px;
+}
+
+.custombox-modal-container,
+.custombox-modal,
+.custombox-modal-push {
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+
+  .modal-content,
+  .modal-dialog {
+    padding: auto;
+    margin: auto;
+    width: 80%;
+  }
+
+  .modal-body {
+    margin: auto;
+  }
 }
