@@ -11,17 +11,24 @@
 |
 */
 
+Route::auth();
+
 Route::get('/', 'CategoryController@index');
+
 Route::post('add/new', 'CategoryController@store');
+
 Route::get('show/{category}', 'CategoryController@show');
 
 Route::post('add/{category}/new', 'QuestionController@store');
+
 Route::post('add/{category}/img', 'QuestionController@image');
 
-Route::get('/play', 'GameController@index');
-Route::get('get-categories', 'GameController@show');
+Route::get('/game-menu', 'GameController@index');
+
+Route::get('/play', 'GameController@play');
+
+Route::get('get-categories', 'GameController@getGameData');
 
 Route::get('display/{category}/{question}', 'GameController@showQuestion');
-Route::auth();
 
 Route::get('/home', 'HomeController@index');

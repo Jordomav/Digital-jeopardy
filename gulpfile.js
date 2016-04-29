@@ -80,7 +80,7 @@ gulp.task('serve', serve('.'));
 
 gulp.task('watch', function () {
     livereload.listen({port: 35730});
-    watch(['./resources/js/*.js', './resources/js/**/*.js'], function () {
+    watch(['./resources/modules/*.js', './resources/modules/**/*.js'], function () {
         gulp.start('js');
     });
 

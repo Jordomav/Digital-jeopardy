@@ -35,4 +35,14 @@ class User extends Eloquent implements AuthenticatableContract,
     {
         return 'U';
     }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
 }
