@@ -28,7 +28,7 @@
     </button>
 
     <!-- Modal -->
-    <div class="modal" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="custombox-modal-push" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -39,6 +39,8 @@
                     ...
                 </div>
             </div>
+        </div>
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('buttonClick').addEventListener('click', function( e ) {
