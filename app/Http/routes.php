@@ -23,9 +23,11 @@ Route::post('add/{category}/new', 'QuestionController@store');
 
 Route::post('add/{category}/img', 'QuestionController@image');
 
-Route::get('/play', 'GameController@index');
+Route::get('/game-menu', 'GameController@index');
 
-Route::get('get-categories', 'GameController@show');
+Route::get('/play', 'GameController@play');
+
+Route::get('get-categories', 'GameController@getGameData');
 
 Route::get('display/{category}/{question}', 'GameController@showQuestion');
 

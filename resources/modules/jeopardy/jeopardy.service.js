@@ -6,5 +6,28 @@
 
     'use strict';
 
+    angular.module('jeopardyApp')
+        .service('Jeopardy', function ($http) {
+
+            var vm = this;
+
+            vm.gameData = [];
+
+            vm.init = function () {
+                return getGameData()
+                    .then(function successCallback(res) {
+                        vm.gameData = res.data;
+                    },
+                        function errorCallback(err) {
+                            alert('There was an error retrieving game data.');
+                            console.log(err);
+                        });
+            };
+
+            function getGameData() {
+                return $http.get('get-categories');
+            }
+        });
+
 
 }());
