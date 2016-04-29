@@ -40,12 +40,14 @@ body {
   color: #FFD700;
 }
 .question {
-  font-family: "Times New Roman", sans-serif;
+  font-family: "DejaVu Serif Condensed", sans-serif;
   color: #fff;
   font-size: 100px;
   text-align: center;
   margin-top: 15%;
   text-shadow: 5px 5px 9px #0e0e0e;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 .question img {
   margin-top: -15% !important;

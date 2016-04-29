@@ -20,7 +20,9 @@
         </div>
 
         {{-- Question Text Modal --}}
-        <div data-ng-swipe-left="game.returnToGameboard()" class="custombox-modal-push" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div data-ng-swipe-left="game.returnToGameboard()" class="custombox-modal-push" id="modal"
+             tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
 
@@ -28,6 +30,8 @@
                         <span data-ng-hide="game.selectedQuestion.showAnswer">
                             @{{ game.selectedQuestion.question }}
                         </span>
+
+                        <img data-ng-if="game.selectedQuestion.image" src="img/@{{game.selectedQuestion.image}}"/>
 
                         <span data-ng-show="game.selectedQuestion.showAnswer">
                             @{{ game.selectedQuestion.answer }}
