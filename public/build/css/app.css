@@ -1,29 +1,25 @@
 body {
   background-color: #060CE9;
 }
-
 .main {
   font-family: 'Fjalla One', sans-serif;
   font-size: 175px;
   text-align: center;
   color: #FFD700;
 }
-
 .start {
   font-family: 'Fjalla One', sans-serif;
   font-size: 75px;
   text-align: center;
   margin-top: 150px;
-  a {
-    color: #FFD700;
-  }
 }
-
+.start a {
+  color: #FFD700;
+}
 .start:hover {
   background-color: #233cff;
   cursor: pointer;
 }
-
 .category {
   font-family: 'Fjalla One', sans-serif;
   color: #FFFFFF;
@@ -31,8 +27,7 @@ body {
   text-align: center;
   min-height: 80px;
 }
-
-.value{
+.value {
   font-family: 'Fjalla One', sans-serif;
   font-size: 40px;
   text-align: center;
@@ -40,12 +35,10 @@ body {
   margin-top: 10px;
   padding-top: 20px;
   border: solid 1px black;
-
-  a {
-    color: #FFD700;
-  }
 }
-
+.value a {
+  color: #FFD700;
+}
 .question {
   font-family: "DejaVu Serif Condensed", sans-serif;
   color: #fff;
@@ -55,22 +48,17 @@ body {
   text-shadow: 5px 5px 9px #0e0e0e;
   font-weight: bold;
   text-transform: uppercase;
-
-  img {
-    margin-top: -15% !important;
-  }
 }
-
-.back{
-  color:#FFD700;
+.question img {
+  margin-top: -15% !important;
 }
-
+.back {
+  color: #FFD700;
+}
 .back:hover {
   text-decoration: none;
-  color:#FFD700;
+  color: #FFD700;
 }
-
-// Reset modal styles to make it look like we aren't using a modal.
 .custombox-overlay,
 .modal-content {
   background-color: #060ce9 !important;
@@ -78,26 +66,28 @@ body {
   box-shadow: none;
   border: none;
 }
-
 .custombox-modal-push {
   padding-top: 3%;
 }
-
 .custombox-modal-container,
 .custombox-modal,
 .custombox-modal-push {
   width: 100vw !important;
   height: 100vh !important;
   margin: 0 !important;
-
-  .modal-content,
-  .modal-dialog {
-    padding: auto;
-    margin: auto;
-    width: 80%;
-  }
-
-  .modal-body {
-    margin: auto;
-  }
+}
+.custombox-modal-container .modal-content,
+.custombox-modal .modal-content,
+.custombox-modal-push .modal-content,
+.custombox-modal-container .modal-dialog,
+.custombox-modal .modal-dialog,
+.custombox-modal-push .modal-dialog {
+  padding: auto;
+  margin: auto;
+  width: 80%;
+}
+.custombox-modal-container .modal-body,
+.custombox-modal .modal-body,
+.custombox-modal-push .modal-body {
+  margin: auto;
 }
