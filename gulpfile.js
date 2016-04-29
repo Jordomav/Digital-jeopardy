@@ -20,6 +20,7 @@ gulp.task('js-deps', function () {
             './bower_components/angular-bootstrap/ui-bootstrap.js',
             './bower_components/bootstrap/dist/js/bootstrap.js',
             './bower_components/angular-xeditable/dist/js/xeditable.js',
+            './custombox-master/src/js/custombox.js'
         ])
         .pipe(concat('deps.js'))
         .pipe(ngAnnotate())
@@ -33,7 +34,8 @@ gulp.task('css-deps', function () {
     gulp.src([
             "./bower_components/bootstrap/dist/css/bootstrap.min.css",
             "./bower_components/font-awesome/css/font-awesome.min.css",
-            "./bower_components/angular-xeditable/dist/css/xeditable.css"
+            "./bower_components/angular-xeditable/dist/css/xeditable.css",
+            "./custombox-master/src/css/custombox.css"
         ])
         .pipe(concat('css-deps.css'))
         .pipe(gulp.dest('./public/build/css'));

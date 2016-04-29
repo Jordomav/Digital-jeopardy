@@ -2,16 +2,39 @@
 @section('content')
     <div class="container" data-ng-app="jeopardyApp" data-ng-controller="jeopardyController as game">
         <div class="row">
-            <div data-ng-repeat="categories in game.showCategories">
-                <div class="col-xs-2">
-                    <div class="category">@{{ game.category.title }}</div>
-                    <div data-ng-repeat="categories.questions in game.showQuestions">
-                        <div class="value">$@{{ ($index+1)*100 }}</div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal">
+                modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('modal').addEventListener('click', function( e ) {
+                Custombox.open({
+                    target: '.modal',
+                    effect: 'push'
+                });
+                e.preventDefault();
+            });
+        });
+    </script>
+
 @endsection
 
 
