@@ -29,6 +29,8 @@
                             @{{ game.selectedQuestion.question }}
                         </span>
 
+                        <img data-ng-if="game.selectedQuestion.image" src="img/@{{game.selectedQuestion.image}}"/>
+                        
                         <span data-ng-show="game.selectedQuestion.showAnswer">
                             @{{ game.selectedQuestion.answer }}
                         </span>
