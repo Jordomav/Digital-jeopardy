@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    <body>
 
     <div class="container">
 
@@ -44,6 +43,5 @@
         <a href="/">Go back</a>
         <br><br>
     </div>
-    </body>
 
 @endsection

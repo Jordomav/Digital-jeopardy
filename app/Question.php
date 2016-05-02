@@ -9,7 +9,8 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 class Question extends Eloquent
 {
     protected $fillable = ['question', 'answer'];
-    public function categories() {
+    
+    public function category() {
         return $this->belongsTo(Category::class);
     }
 
