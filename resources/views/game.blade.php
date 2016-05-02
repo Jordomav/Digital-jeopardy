@@ -38,7 +38,7 @@
                         </span>
 
                     </div>
-                    <button data-ng-click="returnToGameboard()">Close</button>
+                    <button data-ng-click="game.returnToGameboard()">Close</button>
                 </div>
             </div>
         </div>
