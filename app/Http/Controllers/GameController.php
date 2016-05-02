@@ -11,15 +11,15 @@ use Redis;
 class GameController extends Controller
 {
 
-    public function index()
+    public function menu()
     {
-        return view('index');
+        return view('game.menu');
     }
 
 
     public function play()
     {
-        return view('game');
+        return view('game.game');
     }
 
 
@@ -33,10 +33,7 @@ class GameController extends Controller
                 'questions' => $questions));
     }
 
-
-    public function showQuestion(Category $category, $question_id)
-    {
-        $question = $category->questions()->where('_id', $question_id)->first();
-        return view('question', compact('question'));
+    public function controller(){
+        return view('game.game-controller');
     }
 }

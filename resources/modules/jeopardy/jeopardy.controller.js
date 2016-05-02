@@ -62,6 +62,10 @@
             vm.returnToGameboard = function () {
                 Jeopardy.returnToGameboard();
             };
+
+            vm.buttonClick = function () {
+                console.log('Hello');
+            };
         });
 
 }());

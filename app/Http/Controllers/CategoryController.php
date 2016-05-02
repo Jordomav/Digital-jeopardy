@@ -17,20 +17,22 @@ class CategoryController extends Controller
         $this->middleware('auth');
     }
     
-    public function index(){
+    public function index()
+    {
         $categories = Category::all();
-        return view('create', compact('categories'));
+        return view('categories.create', compact('categories'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $category = new Category;
         $category->title = $request->title;
         $category->save();
         return redirect('/');
     }
 
-
-    public function show(Category $category){
-        return view('addQuestions', compact('category'));
+    public function show(Category $category)
+    {
+        return view('categories.add-questions', compact('category'));
     }
 }

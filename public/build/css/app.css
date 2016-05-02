@@ -39,6 +39,7 @@ body {
 .value a {
   color: #FFD700;
 }
+
 .question {
   font-family: "DejaVu Serif Condensed", sans-serif;
   color: #fff;
@@ -49,13 +50,16 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
+
 .question img {
   margin-top: -15% !important;
 }
+
 .question-admin {
   border: solid black 1px;
   background-color: lightpink;
 }
+
 .back {
   color: #FFD700;
 }
