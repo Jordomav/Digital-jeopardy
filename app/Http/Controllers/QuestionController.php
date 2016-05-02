@@ -10,7 +10,8 @@ use App\Image;
 
 class QuestionController extends Controller
 {
-    public function store(Category $category, Request $request){
+    public function store(Category $category, Request $request)
+    {
 
         $question = new Question;
 
@@ -29,23 +30,10 @@ class QuestionController extends Controller
         return back();
     }
 
+    public function edit(Question $question)
+    {
+        
+    }
 
-//    public function store(Category $category, Request $request){
-//
-//        $question = new Question;
-//        $question->question = $request->question;
-//        $question->answer = $request->answer;
-//        $category->questions()->save($question);
-//        return back();
-//    }
-//
-//    public function image(Category $category, Request $request){
-//        $image = new Image;
-//        $filename = random_int(100, 999);
-//        $image->image = $filename ;
-//        $request->file('image')->move('img/', $filename);
-//        $image->answer = $request->answer;
-//        $category->images()->save($image);
-//        return back();
-//    }
+
 }

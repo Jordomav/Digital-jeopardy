@@ -6,14 +6,19 @@
             <h1>{{$category->title}}</h1>
             <h3>Create only a total of 5 questions per category</h3>
             @foreach($category->questions as $question)
-                @if($question->question)
-                    <h3>Question:</h3><h4>{{$question->question}}</h4>
-                @endif 
-                @if($question->image)
+                <div class="question-admin\">
+                    @if($question->question)
+                        <h3>Question:</h3>
+                        <span><button>Edit</button></span>
+                        <h4>{{$question->question}}</h4>
+                    @endif
+                    @if($question->image)
                         <h3>Image:</h3><img src="/img/{{$question->image}}" alt="" style="width:300px;">
-                @endif
-                <h3>Answer:</h3><h4>{{$question->answer}}</h4>
-                <hr>
+                    @endif
+                    <h3>Answer:</h3>
+                    <h4>{{$question->answer}}</h4>
+                    <hr>
+                </div>
             @endforeach
 
 
