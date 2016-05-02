@@ -12,14 +12,14 @@
                 @if($question->question)
                     <h3>Question:</h3>
 
-                    {{-- Edit link --}}
-                    <span><a href="/edit/{{ $question->id }}">Edit</a></span>
-
                     <h4>{{ $question->question }}</h4>
                 @endif
                 @if($question->image)
                     <h3>Image:</h3><img src="/img/{{ $question->image }}" alt="" style="width:300px;">
                 @endif
+                {{-- Edit link --}}
+                <span><a href="/edit/{{ $question->id }}">Edit</a></span>
+
                 <h3>Answer:</h3>
                 <h4>{{ $question->answer }}</h4>
                 <hr>

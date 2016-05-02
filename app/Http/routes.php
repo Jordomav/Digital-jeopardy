@@ -20,10 +20,10 @@ Route::post('add/new', 'CategoryController@store');
 Route::get('show/{category}', 'CategoryController@show');
 
 Route::post('add/{category}/new', 'QuestionController@store');
-
 Route::post('add/{category}/img', 'QuestionController@image');
 
 Route::get('edit/{question}', 'QuestionController@edit');
+Route::post('save-edit/{question}', 'QuestionController@saveEdit');
 
 Route::get('/game-menu', 'GameController@menu');
 

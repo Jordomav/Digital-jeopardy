@@ -10,12 +10,19 @@ class Question extends Eloquent
 {
     protected $fillable = ['question', 'answer'];
     
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 
 
-    public function hasImage(){
+    public function hasImage()
+    {
+        return isset($this['image']);
+    }
 
+    public function hasQuestionText()
+    {
+        return isset($this['question']);
     }
 }

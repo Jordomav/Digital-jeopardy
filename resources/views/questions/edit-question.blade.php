@@ -2,18 +2,30 @@
 
 @section('content')
 
-    <div class="container">
+    <div data-ng-app="jeopardyApp" data-ng-controller="adminController as admin" class="container">
 
         <form method="POST" action="/save-edit/{{ $question->id }}" enctype="multipart/form-data">
             {{ csrf_field() }}
-            <h3>Question:</h3>
-            <textarea name="question" id="" cols="40" rows="5">{{ $question->question }}</textarea>
-            <h2>OR</h2>
-            <h3>Image:</h3>
-            <input type="file" name="image" id="filename" >
+
+            <div class="row">
+                <h3>Question Type:</h3>
+                <span data-ng-click="admin.setQuestionType('text')" class="col-xs-2">Question</span>
+                <span data-ng-click="admin.setQuestionType('image')" class="col-xs-2">Image</span>
+            </div>
+
+            <div data-ng-show="admin.getQuestionType('{{ $question }}') === 'text' ">
+                <h3>Question:</h3>
+                <textarea name="question" id="" cols="40" rows="5">{{ $question->question }}</textarea>
+            </div>
+
+            <div data-ng-show="admin.getQuestionType('{{ $question }}') === 'image' ">
+                <h3>Image:</h3>
+                <input type="file" name="image" id="filename" >
+            </div>
+
             <h3>Answer:</h3>
             <textarea name="answer" id="" cols="40" rows="5">{{ $question->answer }}</textarea>
-            <button type="submit">Submit Question</button>
+            <button type="submit">Save</button>
         </form>
 
 

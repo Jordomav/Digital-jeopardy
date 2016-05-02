@@ -39,7 +39,6 @@ body {
 .value a {
   color: #FFD700;
 }
-
 .question {
   font-family: "DejaVu Serif Condensed", sans-serif;
   color: #fff;
@@ -50,18 +49,12 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
-
 .question img {
   margin-top: -15% !important;
 }
-
 .question-admin {
   border: solid black 1px;
   background-color: lightpink;
-}
-
-.back {
-  color: #FFD700;
 }
 .back:hover {
   text-decoration: none;
@@ -98,4 +91,26 @@ body {
 .custombox-modal .modal-body,
 .custombox-modal-push .modal-body {
   margin: auto;
+}
+.buzzer {
+  background-color: red;
+  width: 350px;
+  height: 350px;
+  border: solid black 4px;
+  border-radius: 400px;
+  font-size: 100px;
+  color: white;
+}
+.user-name,
+.score {
+  text-align: center;
+  color: white;
+}
+.goBack {
+  background-color: #060ce9;
+  border: #060ce9;
+}
+.goBack i {
+  font-size: 40px;
+  color: white;
 }
