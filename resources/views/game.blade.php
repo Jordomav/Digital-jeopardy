@@ -36,13 +36,11 @@
                         <span data-ng-show="game.selectedQuestion.showAnswer">
                             @{{ game.selectedQuestion.answer }}
                         </span>
-                    </div>
 
+                    </div>
+                    <button data-ng-click="returnToGameboard()">Close</button>
                 </div>
             </div>
         </div>
-
     </div>
-
-
 @endsection

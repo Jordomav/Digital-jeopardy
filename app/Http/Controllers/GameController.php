@@ -39,4 +39,8 @@ class GameController extends Controller
         $question = $category->questions()->where('_id', $question_id)->first();
         return view('question', compact('question'));
     }
+
+    public function controller(){
+        return view('game-controller');
+    }
 }

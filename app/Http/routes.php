@@ -32,3 +32,5 @@ Route::get('get-categories', 'GameController@getGameData');
 Route::get('display/{category}/{question}', 'GameController@showQuestion');
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/start', 'GameController@controller');
