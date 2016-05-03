@@ -67,7 +67,8 @@ class QuestionController extends Controller
 
     public function removeFromCategory(Category $category, Question $question)
     {
-        $category->questions()->delete($question);
+        $question->delete();
+        $category->save();
         return back();
     }
 

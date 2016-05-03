@@ -25,7 +25,7 @@
 
                     {{-- Edit and Delete links --}}
                     <div class="col-xs-12">
-                        <span><a href="/edit/{{ $question->id }}">Edit</a></span>
+                        <span><a href="/edit/{{ $question->_id }}">Edit</a></span>
                         <span><a href="/remove-from-category/{{ $category->id }}/{{ $question->_id }}">Remove</a></span>
                     </div>
 
