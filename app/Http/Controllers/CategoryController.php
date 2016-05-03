@@ -35,5 +35,16 @@ class CategoryController extends Controller
     {
         return view('categories.admin-category', compact('category'));
     }
+
+    public function edit(Category $category)
+    {
+        return view('categories.edit-category', compact('category'));
+    }
+
+    public function saveEdit(Category $category, Request $request)
+    {
+        $category->update(['title' => $request->title]);
+        return redirect('/show/'.$category->_id);
+    }
 }
 

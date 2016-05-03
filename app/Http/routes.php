@@ -13,25 +13,33 @@
 
 Route::auth();
 
+
+/*
+ *  Category CRUD methods for admin views.
+ */
 Route::get('/', 'CategoryController@index');
 
 Route::post('add/new', 'CategoryController@store');
 
-Route::get('show/{category}', 'CategoryController@show');
+Route::get('/show/{category}', 'CategoryController@show');
+
+Route::get('edit-category/{category}', 'CategoryController@edit');
+Route::post('save-category-edit/{category}', 'CategoryController@saveEdit');
 
 /*
  * Question CRUD methods for admin views.
  */
 
-// Add
+// Add Question
 Route::post('add/{category}/new', 'QuestionController@store');
 Route::post('add/{category}/img', 'QuestionController@image');
 
-// Edit
+// Edit Question
 Route::get('edit/{question}', 'QuestionController@edit');
 Route::post('save-edit/{question}', 'QuestionController@saveEdit');
 
-// Delete
+// Delete Question
+// TODO: I was having trouble getting this to work as a POST request.
 Route::get('remove-from-category/{category}/{question}', 'QuestionController@removeFromCategory');
 
 /*

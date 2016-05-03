@@ -84,7 +84,7 @@
 
 
         <a href="/">Go back</a>
-        <br><br>
+
     </div>
 
 @endsection
