@@ -19,12 +19,24 @@ Route::post('add/new', 'CategoryController@store');
 
 Route::get('show/{category}', 'CategoryController@show');
 
+/*
+ * Question CRUD methods for admin views.
+ */
+
+// Add
 Route::post('add/{category}/new', 'QuestionController@store');
 Route::post('add/{category}/img', 'QuestionController@image');
 
+// Edit
 Route::get('edit/{question}', 'QuestionController@edit');
 Route::post('save-edit/{question}', 'QuestionController@saveEdit');
 
+// Delete
+Route::get('remove-from-category/{category}/{question}', 'QuestionController@removeFromCategory');
+
+/*
+ *  Game Methods
+ */
 Route::get('/game-menu', 'GameController@menu');
 
 Route::get('/play', 'GameController@play');

@@ -7,26 +7,38 @@
         <h3>Create only a total of 5 questions per category</h3>
 
         {{-- Display current questions in category --}}
-        @foreach($category->questions as $question)
-            <div class="question-admin">
-                @if($question->question)
-                    <h3>Question:</h3>
+        @if(count($category->questions) > 0)
+            @foreach($category->questions as $index=>$question)
+                <div class="question-admin row">
 
-                    <h4>{{ $question->question }}</h4>
-                @endif
-                @if($question->image)
-                    <h3>Image:</h3><img src="/img/{{ $question->image }}" alt="" style="width:300px;">
-                @endif
-                {{-- Edit link --}}
-                <span><a href="/edit/{{ $question->id }}">Edit</a></span>
+                    @if($question->hasQuestionText())
+                        <p class="col-xs-6">{{($index + 1).'. '.$question->question }}</p>
+                    @endif
 
-                <h3>Answer:</h3>
-                <h4>{{ $question->answer }}</h4>
-                <hr>
-            </div>
-        @endforeach
+                    @if($question->hasImage())
+                        <div class="col-xs-6">
+                            {{($index + 1).'. '}}<img src="/img/{{ $question->image }}" alt="" style="width:300px;">
+                        </div>
+                    @endif
 
-        <hr />
+                    <p class="col-xs-12">Answer: {{ $question->answer }}</p>
+
+                    {{-- Edit and Delete links --}}
+                    <div class="col-xs-12">
+                        <span><a href="/edit/{{ $question->id }}">Edit</a></span>
+                        <span><a href="/remove-from-category/{{ $category->id }}/{{ $question->_id }}">Remove</a></span>
+                    </div>
+
+
+
+                    <div class="col-xs-12"> <hr/>
+                    </div>
+
+                </div>
+            @endforeach
+        @endif
+
+        <hr/>
 
         {{-- Add new questions to category --}}
         <form method="POST" action="/add/{{ $category->id }}/new" enctype="multipart/form-data">
@@ -41,12 +53,12 @@
                 <span data-ng-click="admin.setQuestionType('image')" class="col-xs-2">Image</span>
             </div>
 
-            <div data-ng-show="admin.getQuestionType('{{ $question }}') === 'text' ">
+            <div data-ng-show="admin.getQuestionType() === 'text' ">
                 <h3>Question:</h3>
                 <textarea name="question" id="" cols="40" rows="5"></textarea>
             </div>
 
-            <div data-ng-show="admin.getQuestionType('{{ $question }}') === 'image' ">
+            <div data-ng-show="admin.getQuestionType() === 'image' ">
                 <h3>Image:</h3>
                 <input type="file" name="image" id="filename" >
             </div>

@@ -19,8 +19,12 @@
             </div>
 
             <div data-ng-show="admin.getQuestionType('{{ $question }}') === 'image' ">
-                <h3>Image:</h3>
-                <input type="file" name="image" id="filename" >
+                <img src="/img/{{ $question->image }}" alt="" style="width:300px;">
+                <label for="image">
+                    Change image:
+                    <input type="file" name="image" id="filename">
+                </label>
+
             </div>
 
             <h3>Answer:</h3>
@@ -30,7 +34,6 @@
 
 
         <a href="/show/{{ $question->category->id }}">Cancel</a>
-        <br><br>
 
     </div>
 

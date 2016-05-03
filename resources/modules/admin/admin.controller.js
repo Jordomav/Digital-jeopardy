@@ -11,7 +11,6 @@
 
             vm.setQuestionType = function (type) {
                 vm.questionType = type;
-                console.log(vm.questionType);
             };
 
             vm.getQuestionType = function (question) {
@@ -20,12 +19,17 @@
                     return vm.questionType;
                 }
 
-                question = JSON.parse(question);
-                if (_.has(question, 'question')) {
-                    vm.questionType = 'text';
-                } else if (_.has(question, 'image')) {
-                    vm.questionType = 'image';
+                if (question) {
+                    console.log(question);
+                    question = JSON.parse(question);
+                    if (_.has(question, 'question')) {
+                        vm.questionType = 'text';
+                    } else if (_.has(question, 'image')) {
+                        vm.questionType = 'image';
+                    }
                 }
+
+                return 'text';
 
             };
         });

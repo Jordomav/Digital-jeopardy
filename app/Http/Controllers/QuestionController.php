@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Question;
 use DB;
-use App\Image;
 
 class QuestionController extends Controller
 {
@@ -64,6 +63,12 @@ class QuestionController extends Controller
 
         $category = $question->category;
         return redirect('show/'.$category->id);
+    }
+
+    public function removeFromCategory(Category $category, Question $question)
+    {
+        $category->questions()->delete($question);
+        return back();
     }
 
 }
