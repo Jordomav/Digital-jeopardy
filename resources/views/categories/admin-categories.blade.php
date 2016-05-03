@@ -11,9 +11,18 @@
                 @endforeach
             </div>
             <form method="POST" action="add/new">
+
                 {{ csrf_field() }}
-                <textarea name="title"></textarea>
-                <button type="submit">Create Category</button>
+
+                <div>
+                    <label for="title">
+                        Add Category
+                        <textarea class="col-xs-12" name="title"></textarea>
+                    </label>
+                </div>
+
+                <button type="submit">Save</button>
+
             </form>
         </div>
     </div>

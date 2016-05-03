@@ -20,7 +20,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('categories.create', compact('categories'));
+        return view('categories.admin-categories', compact('categories'));
     }
 
     public function store(Request $request)
@@ -36,3 +36,4 @@ class CategoryController extends Controller
         return view('categories.add-questions', compact('category'));
     }
 }
+
