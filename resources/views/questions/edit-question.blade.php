@@ -19,7 +19,11 @@
             </div>
 
             <div data-ng-show="admin.getQuestionType('{{ $question }}') === 'image' ">
-                <img src="/img/{{ $question->image }}" alt="" style="width:300px;">
+
+                @if($question->image)
+                    <img src="/img/{{ $question->image }}" alt="" style="width:300px;">
+                @endif
+
                 <label for="image">
                     Change image:
                     <input type="file" name="image" id="filename">

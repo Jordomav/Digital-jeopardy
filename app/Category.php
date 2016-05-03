@@ -11,7 +11,7 @@ class Category extends Eloquent
 
     public function questions()
     {
-        return $this->embedsMany(Question::class);
+        return $this->hasMany(Question::class);
     }
 
 }
