@@ -11,38 +11,32 @@
             </span>
         </div>
 
-
-
-        <h3>Create only a total of 5 questions per category</h3>
-
         {{-- Display current questions in category --}}
         @if(count($category->questions) > 0)
             @foreach($category->questions as $index=>$question)
                 <div class="question row">
 
                     @if($question->hasQuestionText())
-                        <p class="col-xs-6">{{($index + 1).'. '.$question->question }}</p>
+                        <p class="col-xs-6">
+                            <span class="list-number">{{ ($index + 1).'. ' }}</span>
+                            {{ $question->question }}
+                        </p>
                     @endif
 
                     @if($question->hasImage())
                         <div class="col-xs-6">
-                            {{($index + 1).'. '}}<img src="/img/{{ $question->image }}" alt="" style="width:300px;">
+                            <span class="list-number">{{ ($index + 1).'. ' }}</span>
+                            <img src="/img/{{ $question->image }}" alt="" style="width:300px;">
                         </div>
                     @endif
 
-                    <p class="col-xs-12">Answer: {{ $question->answer }}</p>
+                    <p class="answer col-xs-12">Answer: {{ $question->answer }}</p>
 
                     {{-- Edit and Remove links for individual questions --}}
                     <div class="col-xs-12 text-right">
                         <span class="option-link minor"><a href="/edit/{{ $question->_id }}">Edit</a></span>
                         <span class="option-link minor"><a href="/remove-from-category/{{ $category->id }}/{{ $question->_id }}">Remove</a></span>
                     </div>
-
-
-
-                    <div class="col-xs-12"> <hr/>
-                    </div>
-
                 </div>
             @endforeach
         @endif

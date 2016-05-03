@@ -33,7 +33,7 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        return view('categories.add-questions', compact('category'));
+        return view('categories.admin-category', compact('category'));
     }
 }
 

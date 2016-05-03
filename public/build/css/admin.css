@@ -29,6 +29,12 @@
   border: 1px solid #8a8a8a;
   padding: 16px;
 }
+.question .answer {
+  font-style: italic;
+}
+.question .list-number {
+  font-weight: bold;
+}
 .admin-input {
   padding: 16px 0;
 }
