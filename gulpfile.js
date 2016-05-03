@@ -67,7 +67,8 @@ gulp.task('js', function () {
 
 gulp.task('less', function () {
     gulp.src([
-            './resources/styles/app.less'
+            './resources/styles/app.less',
+            './resources/styles/admin.less'
         ])
         .pipe(plumber())
         .pipe(less())

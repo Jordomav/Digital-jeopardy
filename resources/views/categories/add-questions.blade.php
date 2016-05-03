@@ -3,13 +3,22 @@
 
     <div data-ng-app="jeopardyApp" data-ng-controller="adminController as admin" class="container">
 
-        <h1>{{ $category->title }}</h1>
+        <div class="row">
+            <h1 class="col-xs-4">{{ $category->title }}</h1>
+            <span class="col-xs-8 text-right">
+                <span class="option-link major"><a href="/edit-category/{{ $category->id }}">Edit Title</a></span>
+                <span class="option-link major"><a href="/delete-category/{{ $category->id }}">Delete Category</a></span>
+            </span>
+        </div>
+
+
+
         <h3>Create only a total of 5 questions per category</h3>
 
         {{-- Display current questions in category --}}
         @if(count($category->questions) > 0)
             @foreach($category->questions as $index=>$question)
-                <div class="question-admin row">
+                <div class="question row">
 
                     @if($question->hasQuestionText())
                         <p class="col-xs-6">{{($index + 1).'. '.$question->question }}</p>
@@ -23,10 +32,10 @@
 
                     <p class="col-xs-12">Answer: {{ $question->answer }}</p>
 
-                    {{-- Edit and Delete links --}}
-                    <div class="col-xs-12">
-                        <span><a href="/edit/{{ $question->_id }}">Edit</a></span>
-                        <span><a href="/remove-from-category/{{ $category->id }}/{{ $question->_id }}">Remove</a></span>
+                    {{-- Edit and Remove links for individual questions --}}
+                    <div class="col-xs-12 text-right">
+                        <span class="option-link minor"><a href="/edit/{{ $question->_id }}">Edit</a></span>
+                        <span class="option-link minor"><a href="/remove-from-category/{{ $category->id }}/{{ $question->_id }}">Remove</a></span>
                     </div>
 
 
@@ -45,26 +54,36 @@
 
             {{ csrf_field() }}
 
-            <h2>Add a question to this category:</h2>
+            <div class="row">
+                <h2>Add a question to this category:</h2>
+            </div>
+
+            <div class="admin-input row">
+                <span>Question Type:</span>
+                <span data-ng-click="admin.setQuestionType('text')" class="option-link minor">Question</span>
+                <span data-ng-click="admin.setQuestionType('image')" class="option-link minor">Image</span>
+            </div>
+
+            <div style="height: 80px">
+                <div class="row" data-ng-show="admin.getQuestionType() === 'text' ">
+                    <label for="question" class="col-xs-12">
+                        Question:
+                        <textarea class="col-xs-12" name="question"></textarea>
+                    </label>
+                </div>
+
+                <div class="admin-input" data-ng-show="admin.getQuestionType() === 'image' ">
+                    <input class="col-xs-12" type="file" name="image" id="filename" >
+                </div>
+            </div>
 
             <div class="row">
-                <h3>Question Type:</h3>
-                <span data-ng-click="admin.setQuestionType('text')" class="col-xs-2">Question</span>
-                <span data-ng-click="admin.setQuestionType('image')" class="col-xs-2">Image</span>
+                <label for="answer" class="col-xs-12">
+                    Answer:
+                    <textarea class="col-xs-12" name="answer"></textarea>
+                </label>
             </div>
 
-            <div data-ng-show="admin.getQuestionType() === 'text' ">
-                <h3>Question:</h3>
-                <textarea name="question" id="" cols="40" rows="5"></textarea>
-            </div>
-
-            <div data-ng-show="admin.getQuestionType() === 'image' ">
-                <h3>Image:</h3>
-                <input type="file" name="image" id="filename" >
-            </div>
-
-            <h3>Answer:</h3>
-            <textarea name="answer" id="" cols="40" rows="5"></textarea>
             <button type="submit">Save Question</button>
 
         </form>

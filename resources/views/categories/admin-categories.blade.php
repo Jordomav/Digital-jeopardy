@@ -7,7 +7,10 @@
             <h2>Create 6 categories</h2>
             <div>
                 @foreach($categories as $category)
-                    <p><a href="/show/{{$category->id}}">{{$category->title}}</a></p>
+                    <p>
+                        <a href="/show/{{ $category->id }}">{{ $category->title }}</a>
+                        <span> ({{ count($category->questions) }} questions)</span>
+                    </p>
                 @endforeach
             </div>
             <form method="POST" action="add/new">
@@ -15,9 +18,9 @@
                 {{ csrf_field() }}
 
                 <div>
-                    <label for="title">
+                    <label for="new-category">
                         Add Category
-                        <textarea class="col-xs-12" name="title"></textarea>
+                        <input class="col-xs-12" type="text" name="new-category">
                     </label>
                 </div>
 
