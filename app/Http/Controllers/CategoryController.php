@@ -12,25 +12,50 @@ use App;
 
 class CategoryController extends Controller
 {
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     
-    public function index(){
+    public function index()
+    {
         $categories = Category::all();
-        return view('create', compact('categories'));
+        return view('categories.admin-categories', compact('categories'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $category = new Category;
         $category->title = $request->title;
         $category->save();
         return redirect('/');
     }
 
+    public function show(Category $category)
+    {
+        return view('categories.admin-category', compact('category'));
+    }
 
-    public function show(Category $category){
-        return view('addQuestions', compact('category'));
+    public function edit(Category $category)
+    {
+        return view('categories.edit-category', compact('category'));
+    }
+
+    public function saveEdit(Category $category, Request $request)
+    {
+        $category->update(['title' => $request->title]);
+        return redirect('/show/'.$category->_id);
+    }
+
+    public function delete(Category $category)
+    {
+        return view('categories.confirm-delete', compact('category'));
+    }
+
+    public function confirmDelete(Category $category)
+    {
+        $category->delete();
+        return redirect('/');
     }
 }
+

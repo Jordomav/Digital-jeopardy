@@ -2,15 +2,15 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 
 class Category extends Eloquent
 {
-    protected $fillable = ['title'];
+    protected $fillable = ['title', 'questions'];
 
-    public function questions(){
+    public function questions()
+    {
         return $this->hasMany(Question::class);
     }
 

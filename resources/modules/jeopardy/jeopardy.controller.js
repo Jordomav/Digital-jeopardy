@@ -5,10 +5,10 @@
 
     angular.module('jeopardyApp')
         .controller('jeopardyController', function($http, Jeopardy){
-
-            console.log('called');
-
+            
             var vm = this;
+            
+            vm.testing = 'hi hi hi';
 
             vm.gameData = [];
             vm.categories = [];
