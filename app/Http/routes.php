@@ -19,21 +19,21 @@ Route::auth();
 /*
  *  Category CRUD methods for admin views.
  */
-//Route::get('/', 'CategoryController@index');
+Route::get('/', 'CategoryController@index');
 
-Route::get('/', function () {
-
-    $data = [
-        'event' => 'UserSignedUP',
-        'data' => [
-            'username' => 'Jordan'
-        ]
-    ];
-
-   Redis::publish('test-channel', json_encode($data));
-
-    return 'Done';
-});
+//Route::get('/', function () {
+//
+//    $data = [
+//        'event' => 'UserSignedUP',
+//        'data' => [
+//            'username' => 'Jordan'
+//        ]
+//    ];
+//
+//   Redis::publish('test-channel', json_encode($data));
+//
+//    return 'Done';
+//});
 
 Route::post('add/new', 'CategoryController@store');
 
