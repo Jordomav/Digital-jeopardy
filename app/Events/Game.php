@@ -19,9 +19,7 @@ class Game extends Event implements ShouldBroadcast
      */
     public function __construct()
     {
-        $this->data = array(
-            'power' => '10'
-        );
+
     }
 
     /**
@@ -31,6 +29,6 @@ class Game extends Event implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['test-channel'];
+
     }
 }

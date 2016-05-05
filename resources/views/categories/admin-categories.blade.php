@@ -31,7 +31,7 @@
             <h1 id="power">0</h1>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.0/sockjs.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
     <script>
         var socket = io('http://192.168.10.10:3000');
         socket.on('test-channel:App\\Events\\Game', function(message) {

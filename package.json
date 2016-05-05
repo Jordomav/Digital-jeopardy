@@ -20,7 +20,7 @@
     "ioredis": "^1.15.1",
     "jshint": "^2.9.1",
     "laravel-elixir": "^5.0.0",
-    "socket.io": "^1.4.6",
-    "redis": "^0.12.1"
+    "redis": "^0.12.1",
+    "socket.io": "^1.4.6"
   }
 }
