@@ -27,8 +27,17 @@
                 <button type="submit">Save</button>
 
             </form>
+
+            <h1 id="power">0</h1>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.0/sockjs.min.js"></script>
+    <script>
+        var socket = io('http://192.168.10.10:3000');
+        socket.on('test-channel:App\\Events\\Game', function(message) {
+            $('#power').text(parseInt($('#power').text()) + parseInt(message.data.power));
+        });
+    </script>
     </body>
 
 @endsection

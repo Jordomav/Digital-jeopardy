@@ -57,3 +57,10 @@ Route::get('get-categories', 'GameController@getGameData');
 Route::get('/home', 'HomeController@index');
 
 Route::get('/start', 'GameController@controller');
+
+
+
+Route::get('fire', function () {
+    event(new App\Events\Game());
+    return "event fired";
+});
