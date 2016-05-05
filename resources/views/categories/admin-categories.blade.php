@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <body style="background-color: white;">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <div class="container">
         <div class="row">
             <h1>Create your Jeopardy game.</h1>
@@ -29,7 +31,6 @@
             </form>
         </div>
     </div>
-    <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
     </body>
 
 @endsection

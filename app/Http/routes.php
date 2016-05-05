@@ -32,7 +32,7 @@ Route::get('/', 'CategoryController@index');
 //
 //   Redis::publish('test-channel', json_encode($data));
 //
-//    return 'Done';
+//    return redirect()->action('CategoryController@index');
 //});
 
 Route::post('add/new', 'CategoryController@store');

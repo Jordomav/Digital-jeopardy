@@ -8,6 +8,8 @@ redis.subscribe('test-channel');
 redis.on('message', function(channel, message) {
     console.log('Message Received');
     console.log(message);
+
+    io.emit(channel + ':' + message.event, message.data);
 });
 
 server.listen(3000);
