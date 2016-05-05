@@ -26,6 +26,9 @@ Route::get('/show/{category}', 'CategoryController@show');
 Route::get('edit-category/{category}', 'CategoryController@edit');
 Route::post('save-category-edit/{category}', 'CategoryController@saveEdit');
 
+Route::get('delete-category/{category}', 'CategoryController@delete');
+Route::post('confirm-delete/{category}', 'CategoryController@confirmDelete');
+
 /*
  * Question CRUD methods for admin views.
  */

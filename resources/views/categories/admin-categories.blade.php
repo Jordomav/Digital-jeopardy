@@ -20,7 +20,7 @@
                 <div>
                     <label for="new-category">
                         Add Category
-                        <input class="col-xs-12" type="text" name="new-category">
+                        <input class="col-xs-12" type="text" name="title">
                     </label>
                 </div>
 

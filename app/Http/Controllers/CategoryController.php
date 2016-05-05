@@ -46,5 +46,16 @@ class CategoryController extends Controller
         $category->update(['title' => $request->title]);
         return redirect('/show/'.$category->_id);
     }
+
+    public function delete(Category $category)
+    {
+        return view('categories.confirm-delete', compact('category'));
+    }
+
+    public function confirmDelete(Category $category)
+    {
+        $category->delete();
+        return redirect('/');
+    }
 }
 

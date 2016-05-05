@@ -30,7 +30,7 @@
                         </div>
                     @endif
 
-                    <p class="answer col-xs-12">Answer: {{ $question->answer }}</p>
+                    <p class="answer col-xs-11">&emsp;Answer: {{ $question->answer }}</p>
 
                     {{-- Edit and Remove links for individual questions --}}
                     <div class="col-xs-12 text-right">

@@ -5,35 +5,45 @@
     <div data-ng-app="jeopardyApp" data-ng-controller="adminController as admin" class="container">
 
         <form method="POST" action="/save-edit/{{ $question->id }}" enctype="multipart/form-data">
+
+            <h3>Edit Question:</h3>
+
             {{ csrf_field() }}
 
+            <div class="admin-input row">
+                <span>Question Type:</span>
+                <span data-ng-click="admin.setQuestionType('text')" class="option-link minor">Question</span>
+                <span data-ng-click="admin.setQuestionType('image')" class="option-link minor">Image</span>
+            </div>
+
+            <div style="min-height: 80px">
+                <div class="row" data-ng-show="admin.getQuestionType('{{ $question }}') === 'text' ">
+                    <label for="question" class="col-xs-12">
+                        Question:
+                        <textarea class="col-xs-12" name="question">{{ $question->question }}</textarea>
+                    </label>
+                </div>
+
+                <div class="admin-input" data-ng-show="admin.getQuestionType('{{ $question }}') === 'image' ">
+                    @if($question->image)
+                        <img src="/img/{{ $question->image }}" alt="" style="width:300px;">
+                    @endif
+                    <label for="image">
+                        Change Image:
+                        <input class="col-xs-12" type="file" name="image" id="filename" >
+                    </label>
+                </div>
+            </div>
+
             <div class="row">
-                <h3>Question Type:</h3>
-                <span data-ng-click="admin.setQuestionType('text')" class="col-xs-2">Question</span>
-                <span data-ng-click="admin.setQuestionType('image')" class="col-xs-2">Image</span>
-            </div>
-
-            <div data-ng-show="admin.getQuestionType('{{ $question }}') === 'text' ">
-                <h3>Question:</h3>
-                <textarea name="question" id="" cols="40" rows="5">{{ $question->question }}</textarea>
-            </div>
-
-            <div data-ng-show="admin.getQuestionType('{{ $question }}') === 'image' ">
-
-                @if($question->image)
-                    <img src="/img/{{ $question->image }}" alt="" style="width:300px;">
-                @endif
-
-                <label for="image">
-                    Change image:
-                    <input type="file" name="image" id="filename">
+                <label for="answer" class="col-xs-12">
+                    Answer:
+                    <textarea class="col-xs-12" name="answer">{{ $question->answer }}</textarea>
                 </label>
-
             </div>
 
-            <h3>Answer:</h3>
-            <textarea name="answer" id="" cols="40" rows="5">{{ $question->answer }}</textarea>
-            <button type="submit">Save</button>
+            <button type="submit">Save Question</button>
+
         </form>
 
 
