@@ -11,5 +11,4 @@
         <div data-ng-repeat="user in players.users">@{{user.name}}</div>
     </div>
 </div>
-{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.min.js"></script>--}}
 @endsection
