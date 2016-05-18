@@ -11,6 +11,8 @@
         </ul>
     </div>
 
+    <script>
 
+    </script>
 
 @endsection
