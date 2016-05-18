@@ -57,3 +57,16 @@ Route::get('get-categories', 'GameController@getGameData');
 Route::get('/home', 'HomeController@index');
 
 Route::get('/start', 'GameController@controller');
+
+
+// Pusher Testing
+
+Route::get('display-event', function () {
+   return view('pusher.test'); 
+});
+
+Route::get('event-test', function () {
+    $user = \App\User::first();
+    event(new \App\Events\PlayerHitBuzzer($user));
+    return $user->name . ' hit the buzzer.';
+});

@@ -30,6 +30,6 @@ class PlayerHitBuzzer extends Event implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['buzz'];
+        return ['buzzer-channel'];
     }
 }
