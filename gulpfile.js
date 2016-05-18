@@ -20,7 +20,8 @@ gulp.task('js-deps', function () {
             './bower_components/angular-ui/angular-ui.js',
             './bower_components/angular-bootstrap/ui-bootstrap.js',
             './bower_components/bootstrap/dist/js/bootstrap.js',
-            './bower_components/angular-touch/angular-touch.js'
+            './bower_components/angular-touch/angular-touch.js',
+            './bower_components/pusher-websocket-iso/web/pusher.js'
         ])
         .pipe(concat('deps.js'))
         .pipe(ngAnnotate())
