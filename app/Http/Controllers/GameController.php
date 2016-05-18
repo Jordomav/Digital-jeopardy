@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PlayerHitBuzzer;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Question;
@@ -22,6 +23,11 @@ class GameController extends Controller
         return view('game.game');
     }
 
+    public function pusherTest()
+    {
+        event(new PlayerHitBuzzer('Neil Strain'));
+    }
+
 
     public function getGameData()
     {
@@ -33,7 +39,8 @@ class GameController extends Controller
                 'questions' => $questions));
     }
 
-    public function controller(){
+    public function controller()
+    {
         return view('game.game-controller');
     }
 }

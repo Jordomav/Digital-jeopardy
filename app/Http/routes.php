@@ -11,8 +11,6 @@
 |
 */
 
-use Illuminate\Support\Facades\Redis;
-
 Route::auth();
 
 
@@ -20,20 +18,6 @@ Route::auth();
  *  Category CRUD methods for admin views.
  */
 Route::get('/', 'CategoryController@index');
-
-//Route::get('/', function () {
-//
-//    $data = [
-//        'event' => 'UserSignedUP',
-//        'data' => [
-//            'username' => 'Jordan'
-//        ]
-//    ];
-//
-//   Redis::publish('test-channel', json_encode($data));
-//
-//    return redirect()->action('CategoryController@index');
-//});
 
 Route::post('add/new', 'CategoryController@store');
 
@@ -75,8 +59,14 @@ Route::get('/home', 'HomeController@index');
 Route::get('/start', 'GameController@controller');
 
 
+// Pusher Testing
 
-//Route::get('fire', function () {
-//    event(new App\Events\Game());
-//    return "event fired";
-//});
+Route::get('display-event', function () {
+   return view('pusher.test');
+});
+
+Route::get('event-test', function () {
+    $user = \App\User::first();
+    event(new \App\Events\PlayerHitBuzzer($user));
+    return $user->name . ' hit the buzzer.';
+});
