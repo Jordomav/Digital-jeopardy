@@ -15,9 +15,9 @@ class BuzzerController extends Controller
         $this->middleware('auth');
     }
     
-    public function buzzer()
+    public function buzzer(Guard $auth)
     {
-        return view('buzzer.buzzer');
+        return view('buzzer.buzzer')->with('currentUser', $auth->user());
     }
 
     public function buzz(Guard $auth)
