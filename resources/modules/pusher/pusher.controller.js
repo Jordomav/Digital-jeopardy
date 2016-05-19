@@ -7,9 +7,7 @@
         .controller('pusherController', function ($scope) {
 
             var vm = this;
-
-            vm.buzzEvents = ['hi'];
-
+            
             vm.pusher = new Pusher('4792c6294d140acf74ba');
             console.log(vm.pusher);
             vm.pusherChannel = vm.pusher.subscribe('buzzer-channel');
