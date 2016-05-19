@@ -7,12 +7,7 @@
         
         <div style="color: white;">
             Debugging:
-            @{{ pusher.buzzEvents }}
-            <ul>
-                <li data-ng-repeat="buzz in buzzer.buzzEvents">
-                    @{{ buzz }}
-                </li>
-            </ul>
+            <h3>@{{ buzzer.playerWhoBuzzed.name }}</h3>
         </div>
         
     </div>
