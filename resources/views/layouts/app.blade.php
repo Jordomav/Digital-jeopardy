@@ -16,6 +16,7 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <link rel="stylesheet" href="/build/css/admin.css">
+
     <style>
         body {
             font-family: 'Lato';

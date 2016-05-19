@@ -4,11 +4,11 @@
     'use strict';
 
     angular.module('jeopardyApp')
-        .controller('buzzerController', function ($scope, $http) {
+        .controller('buzzerController', function ($scope, $http, $timeout) {
 
             var vm = this;
             vm.allPlayersWhoBuzzed = [];
-            vm.playerWhoBuzzed = null;
+            vm.firstPlayerWhoBuzzed = null;
 
             vm.thisPlayer = null;
 
@@ -23,10 +23,24 @@
 
                 resetAllBuzzers = false;
 
-                vm.allPlayersWhoBuzzed.push(buzzEvent.user);
-                vm.playerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
+                console.log(buzzEvent.user.last_buzz);
 
-                $scope.$apply();
+                vm.allPlayersWhoBuzzed.push(buzzEvent.user);
+
+                $timeout(function () {
+
+                    _.each(vm.allPlayersWhoBuzzed, function (player) {
+                        if (buzzEvent.user.last_buzz < player.last_buzz) {
+                            vm.firstPlayerWhoBuzzed = buzzEvent.user;
+                        }
+                    });
+
+                    $scope.$apply();
+
+                    console.log(vm.firstPlayerWhoBuzzed);
+
+                }, 500);
+
             });
 
             vm.buttonDisabled = function (currentUser) {

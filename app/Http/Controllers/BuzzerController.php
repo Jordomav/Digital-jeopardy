@@ -7,6 +7,7 @@ use App\User;
 use App\Events\PlayerHitBuzzer;
 use App\Http\Requests;
 use Illuminate\Contracts\Auth\Guard;
+use DateTime;
 
 class BuzzerController extends Controller
 {
@@ -23,7 +24,9 @@ class BuzzerController extends Controller
     public function buzz(Guard $auth)
     {
         $user = view()->share('user', $auth->user());
+//        $user->last_buzz = new DateTime();
+        $user->last_buzz = round(microtime(true) * 1000);
+        $user->save();
         event(new PlayerHitBuzzer($user));
-        return $user->name . ' hit the buzzer.';
     }
 }

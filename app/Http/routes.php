@@ -13,37 +13,55 @@
 
 Route::auth();
 
+Route::group(['middleware' => ['web']], function () {
 
-/*
- *  Category CRUD methods for admin views.
- */
-Route::get('/', 'CategoryController@index');
+    /*
+    *  Category CRUD methods for admin views.
+    */
+    Route::get('/', 'CategoryController@index');
 
-Route::post('add/new', 'CategoryController@store');
+    Route::post('add/new', 'CategoryController@store');
 
-Route::get('/show/{category}', 'CategoryController@show');
+    Route::get('/show/{category}', 'CategoryController@show');
 
-Route::get('edit-category/{category}', 'CategoryController@edit');
-Route::post('save-category-edit/{category}', 'CategoryController@saveEdit');
+    Route::get('edit-category/{category}', 'CategoryController@edit');
+    Route::post('save-category-edit/{category}', 'CategoryController@saveEdit');
 
-Route::get('delete-category/{category}', 'CategoryController@delete');
-Route::post('confirm-delete/{category}', 'CategoryController@confirmDelete');
+    Route::get('delete-category/{category}', 'CategoryController@delete');
+    Route::post('confirm-delete/{category}', 'CategoryController@confirmDelete');
 
-/*
- * Question CRUD methods for admin views.
- */
 
-// Add Question
-Route::post('add/{category}/new', 'QuestionController@store');
-Route::post('add/{category}/img', 'QuestionController@image');
+    //TODO: here for debugging - remove.
+    Route::get('logout', function () {
+        Auth::logout();
+    });
 
-// Edit Question
-Route::get('edit/{question}', 'QuestionController@edit');
-Route::post('save-edit/{question}', 'QuestionController@saveEdit');
 
-// Delete Question
-// TODO: I was having trouble getting this to work as a POST request.
-Route::get('remove-from-category/{category}/{question}', 'QuestionController@removeFromCategory');
+    /*
+     * Question CRUD methods for admin views.
+     */
+
+    // Add Question
+    Route::post('add/{category}/new', 'QuestionController@store');
+    Route::post('add/{category}/img', 'QuestionController@image');
+
+    // Edit Question
+    Route::get('edit/{question}', 'QuestionController@edit');
+    Route::post('save-edit/{question}', 'QuestionController@saveEdit');
+
+    // Delete Question
+    // TODO: I was having trouble getting this to work as a POST request.
+    Route::get('remove-from-category/{category}/{question}', 'QuestionController@removeFromCategory');
+
+    /*
+    *  Buzzer Methods
+    */
+    Route::get('buzzer', 'BuzzerController@buzzer');
+
+    // TODO: pass current authenticated user who clicked buzzer.
+    Route::get('buzz', 'BuzzerController@buzz');
+});
+
 
 /*
  *  Game Methods
@@ -59,10 +77,3 @@ Route::get('/home', 'HomeController@index');
 Route::get('/start', 'GameController@controller');
 
 
-/*
- *  Buzzer Methods
- */
-Route::get('buzzer', 'BuzzerController@buzzer');
-
-// TODO: pass current authenticated user who clicked buzzer.
-Route::get('buzz', 'BuzzerController@buzz');
