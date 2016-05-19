@@ -12,7 +12,7 @@
         
         <div style="color: white;">
             Debugging:
-            <h3>@{{ buzzer.playerWhoBuzzed.name }}</h3>
+            <h3 data-ng-if="buzzer.firstPlayerWhoBuzzed">@{{ buzzer.firstPlayerWhoBuzzed.name }}</h3>
         </div>
         
     </div>
