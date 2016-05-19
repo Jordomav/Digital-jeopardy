@@ -10,6 +10,8 @@
             vm.playerWhoBuzzed = null;
             vm.thisPlayer = null;
 
+            // TODO: make host controller that resets button for all players (when player answers incorrectly, and every
+            // (todo cont...) time a new question is selected.
             var resetAllBuzzers = true;
             
             vm.pusher = new Pusher('4792c6294d140acf74ba');
@@ -26,7 +28,6 @@
 
             vm.buttonDisabled = function (currentUser) {
                 vm.thisPlayer = JSON.parse(currentUser);
-                console.log(vm.thisPlayer);
 
                 if ( !resetAllBuzzers ) {
                     return vm.playerWhoBuzzed !== vm.thisPlayer;
