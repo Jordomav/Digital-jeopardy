@@ -29,6 +29,9 @@
 
                 $timeout(function () {
 
+                    if (vm.allPlayersWhoBuzzed.length === 1)
+                        vm.firstPlayerWhoBuzzed = buzzEvent.user;
+
                     _.each(vm.allPlayersWhoBuzzed, function (player) {
                         if (buzzEvent.user.last_buzz < player.last_buzz) {
                             vm.firstPlayerWhoBuzzed = buzzEvent.user;
