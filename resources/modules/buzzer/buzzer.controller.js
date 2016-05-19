@@ -7,7 +7,9 @@
         .controller('buzzerController', function ($scope, $http) {
 
             var vm = this;
+            vm.allPlayersWhoBuzzed = [];
             vm.playerWhoBuzzed = null;
+
             vm.thisPlayer = null;
 
             // TODO: make host controller that resets button for all players (when player answers incorrectly, and every
@@ -15,14 +17,15 @@
             var resetAllBuzzers = true;
             
             vm.pusher = new Pusher('4792c6294d140acf74ba');
-            console.log(vm.pusher);
             vm.pusherChannel = vm.pusher.subscribe('buzzer-channel');
 
             vm.pusherChannel.bind('App\\Events\\PlayerHitBuzzer', function (buzzEvent) {
 
                 resetAllBuzzers = false;
 
-                vm.playerWhoBuzzed = buzzEvent.user;
+                vm.allPlayersWhoBuzzed.push(buzzEvent.user);
+                vm.playerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
+
                 $scope.$apply();
             });
 
@@ -30,7 +33,7 @@
                 vm.thisPlayer = JSON.parse(currentUser);
 
                 if ( !resetAllBuzzers ) {
-                    return vm.playerWhoBuzzed !== vm.thisPlayer;
+                    return vm.allPlayersWhoBuzzed !== vm.thisPlayer;
                 }
             };
 
