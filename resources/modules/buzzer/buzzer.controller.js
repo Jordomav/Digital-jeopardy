@@ -4,9 +4,10 @@
     'use strict';
 
     angular.module('jeopardyApp')
-        .controller('pusherController', function ($scope) {
+        .controller('buzzerController', function ($scope, $http) {
 
             var vm = this;
+            vm.buzzEvents = [];
             
             vm.pusher = new Pusher('4792c6294d140acf74ba');
             console.log(vm.pusher);
@@ -18,5 +19,9 @@
                 console.log(vm.buzzEvents);
                 $scope.$apply();
             });
+
+            vm.broadcastToAllPlayersInGame = function () {
+                $http.get('buzz');
+            };
         });
 }());

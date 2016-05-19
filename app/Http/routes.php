@@ -62,10 +62,10 @@ Route::get('/start', 'GameController@controller');
 // Pusher Testing
 
 Route::get('display-event', function () {
-   return view('pusher.test'); 
+   return view('buzzer.buzzer');
 });
 
-Route::get('event-test', function () {
+Route::get('buzz', function () {
     $user = \App\User::first();
     event(new \App\Events\PlayerHitBuzzer($user));
     return $user->name . ' hit the buzzer.';
