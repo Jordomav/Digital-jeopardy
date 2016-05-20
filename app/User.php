@@ -13,6 +13,8 @@ class User extends Eloquent implements AuthenticatableContract,
 
     use Authenticatable, CanResetPassword;
 
+    public $timestamps = true;
+
     /**
      * The attributes that are mass assignable.
      *
