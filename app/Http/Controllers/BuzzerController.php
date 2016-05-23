@@ -10,6 +10,7 @@ use Illuminate\Contracts\Auth\Guard;
 use DateTime;
 use Carbon\Carbon;
 
+
 class BuzzerController extends Controller
 {
     public function __construct()
@@ -25,9 +26,9 @@ class BuzzerController extends Controller
     public function buzz(Guard $auth)
     {
         $user = view()->share('user', $auth->user());
-//        $user->last_buzz = round(microtime(true) * 1000);
-        $user->touch();
-        $user->last_buzz = Carbon::createFromTimestamp(strtotime($user->updated_at));
+//        $user->touch();
+        $now = DateTime::createFromFormat('U.u', microtime(true));
+        $user->last_buzz = $now->format('m-d-Y H:i:s.u');
         $user->save();
         event(new PlayerHitBuzzer($user));
     }

@@ -47,16 +47,21 @@
             };
 
             vm.getFirstPlayerWhoBuzzedIn = function () {
-                var min = Math.max();
+                var min = Number.POSITIVE_INFINITY;
                 console.log(min);
+
+                var firstPlayerWhoBuzzed = null;
                 
                 _.each(vm.allPlayersWhoBuzzed, function (player) {
                     console.log(player);
-                    if (parseInt(player.updated_at) < min)
-                        console.log('hey');
-                        vm.firstPlayerWhoBuzzed = player;
+                    var timestamp = parseInt(player.last_buzz.slice(player.last_buzz.length - 6));
+                    console.log(timestamp);
+                    if (timestamp < min)
+                        min = player;
+                        firstPlayerWhoBuzzed = player;
                 });
-                console.log(vm.firstPlayerWhoBuzzed);
+                vm.firstPlayerWhoBuzzed = firstPlayerWhoBuzzed;
+                console.log(firstPlayerWhoBuzzed);
             };
         });
 }());

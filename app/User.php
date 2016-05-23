@@ -13,6 +13,10 @@ class User extends Eloquent implements AuthenticatableContract,
 
     use Authenticatable, CanResetPassword;
 
+    protected $dates = ['updated_at'];
+
+    protected $dateFormat = 'm-d-Y H:i:s.u';
+
     public $timestamps = true;
 
     /**
