@@ -14,6 +14,8 @@
             Debugging:
             <h3 data-ng-if="buzzer.firstPlayerWhoBuzzed">@{{ buzzer.firstPlayerWhoBuzzed.name }}</h3>
         </div>
+
+        <button data-ng-click="buzzer.getFirstPlayerWhoBuzzedIn()">Get First</button>
         
     </div>
 

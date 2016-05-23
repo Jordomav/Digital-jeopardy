@@ -23,27 +23,9 @@
 
                 resetAllBuzzers = false;
 
-                console.log(buzzEvent.user.last_buzz);
+                console.log(parseInt(buzzEvent.user.updated_at));
 
                 vm.allPlayersWhoBuzzed.push(buzzEvent.user);
-
-                $timeout(function () {
-
-                    if (vm.allPlayersWhoBuzzed.length === 1)
-                        vm.firstPlayerWhoBuzzed = buzzEvent.user;
-
-                    _.each(vm.allPlayersWhoBuzzed, function (player) {
-                        if (buzzEvent.user.last_buzz < player.last_buzz) {
-                            vm.firstPlayerWhoBuzzed = buzzEvent.user;
-                        }
-                    });
-
-                    $scope.$apply();
-
-                    console.log(vm.firstPlayerWhoBuzzed);
-
-                }, 500);
-
             });
 
             vm.buttonDisabled = function (currentUser) {
@@ -62,6 +44,29 @@
                 if (vm.buttonDisabled(currentUser)) {
                     return 'buzzer-disabled';
                 }
+            };
+
+            vm.getFirstPlayerWhoBuzzedIn = function () {
+                var min = Number.POSITIVE_INFINITY;
+
+                var firstPlayerWhoBuzzed = null;
+
+                if(vm.allPlayersWhoBuzzed.length > 1) {
+                    _.each(vm.allPlayersWhoBuzzed, function (player) {
+                        console.log(player);
+                        var timestamp = parseInt(player.last_buzz.slice(player.last_buzz.length - 12));
+                        console.log(timestamp);
+                        if (timestamp < min) {
+                            min = player;
+                            firstPlayerWhoBuzzed = player;
+                        }
+                    });
+                    vm.firstPlayerWhoBuzzed = firstPlayerWhoBuzzed;
+                    console.log(firstPlayerWhoBuzzed);
+                } else {
+                    vm.firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
+                }
+
             };
         });
 }());
