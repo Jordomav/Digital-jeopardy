@@ -48,20 +48,24 @@
 
             vm.getFirstPlayerWhoBuzzedIn = function () {
                 var min = Number.POSITIVE_INFINITY;
-                console.log(min);
 
                 var firstPlayerWhoBuzzed = null;
-                
-                _.each(vm.allPlayersWhoBuzzed, function (player) {
-                    console.log(player);
-                    var timestamp = parseInt(player.last_buzz.slice(player.last_buzz.length - 6));
-                    console.log(timestamp);
-                    if (timestamp < min)
-                        min = player;
+
+                if(vm.allPlayersWhoBuzzed.length > 1) {
+                    _.each(vm.allPlayersWhoBuzzed, function (player) {
+                        console.log(player);
+                        var timestamp = parseInt(player.last_buzz.slice(player.last_buzz.length - 12));
+                        console.log(timestamp);
+                        if (timestamp < min)
+                            min = player;
                         firstPlayerWhoBuzzed = player;
-                });
-                vm.firstPlayerWhoBuzzed = firstPlayerWhoBuzzed;
-                console.log(firstPlayerWhoBuzzed);
+                    });
+                    vm.firstPlayerWhoBuzzed = firstPlayerWhoBuzzed;
+                    console.log(firstPlayerWhoBuzzed);
+                } else {
+                    vm.firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
+                }
+
             };
         });
 }());
