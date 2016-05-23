@@ -27,7 +27,7 @@ class BuzzerController extends Controller
     {
         $user = view()->share('user', $auth->user());
 //        $user->touch();
-        $now = DateTime::createFromFormat('U.u', microtime(true));
+        $now = Carbon::now()->createFromFormat('U.u', microtime(true));
         $user->last_buzz = $now->format('m-d-Y Hisu');
         $user->save();
         event(new PlayerHitBuzzer($user));

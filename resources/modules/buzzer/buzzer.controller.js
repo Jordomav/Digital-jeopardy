@@ -56,9 +56,10 @@
                         console.log(player);
                         var timestamp = parseInt(player.last_buzz.slice(player.last_buzz.length - 12));
                         console.log(timestamp);
-                        if (timestamp < min)
+                        if (timestamp < min) {
                             min = player;
-                        firstPlayerWhoBuzzed = player;
+                            firstPlayerWhoBuzzed = player;
+                        }
                     });
                     vm.firstPlayerWhoBuzzed = firstPlayerWhoBuzzed;
                     console.log(firstPlayerWhoBuzzed);
