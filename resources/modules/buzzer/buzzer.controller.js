@@ -28,20 +28,17 @@
                 vm.allPlayersWhoBuzzed.push(buzzEvent.user);
             });
 
-            vm.buttonDisabled = function (currentUser) {
-                vm.thisPlayer = JSON.parse(currentUser);
-
-                if ( !resetAllBuzzers ) {
-                    return vm.allPlayersWhoBuzzed !== vm.thisPlayer;
-                }
+            vm.disableBuzzer = function () {
+                if (vm.allPlayersWhoBuzzed.length > 0)
+                    return true;
             };
 
             vm.broadcastToAllPlayersInGame = function () {
                 $http.get('buzz');
             };
 
-            vm.enabledness = function (currentUser) {
-                if (vm.buttonDisabled(currentUser)) {
+            vm.enabledness = function () {
+                if (vm.disableBuzzer()) {
                     return 'buzzer-disabled';
                 }
             };
@@ -53,20 +50,17 @@
 
                 if(vm.allPlayersWhoBuzzed.length > 1) {
                     _.each(vm.allPlayersWhoBuzzed, function (player) {
-                        console.log(player);
                         var timestamp = parseInt(player.last_buzz.slice(player.last_buzz.length - 12));
-                        console.log(timestamp);
+                        console.log(player.name + ': ' + timestamp);
                         if (timestamp < min) {
                             min = player;
                             firstPlayerWhoBuzzed = player;
                         }
                     });
                     vm.firstPlayerWhoBuzzed = firstPlayerWhoBuzzed;
-                    console.log(firstPlayerWhoBuzzed);
                 } else {
                     vm.firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
                 }
-
             };
         });
 }());
