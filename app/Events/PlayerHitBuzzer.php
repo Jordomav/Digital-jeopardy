@@ -18,9 +18,9 @@ class PlayerHitBuzzer extends Event implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($name)
     {
-        $this->player = $user->name;
+        $this->player = $name;
     }
 
     /**
