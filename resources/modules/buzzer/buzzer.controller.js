@@ -22,6 +22,13 @@
                 $scope.$apply();
             });
 
+            // Enable Pusher logs
+            Pusher.log = function(message) {
+                if (window.console && window.console.log) {
+                    window.console.log(message);
+                }
+            };
+
 
             // TODO: make host controller that resets button for all players (when player answers incorrectly, and every
             // (todo cont...) time a new question is selected.
@@ -51,16 +58,17 @@
                 if(vm.allPlayersWhoBuzzed.length > 1) {
                     _.each(vm.allPlayersWhoBuzzed, function (player) {
                         var timestamp = parseInt(player.last_buzz.slice(player.last_buzz.length - 12));
-                        // console.log(player.name + ': ' + timestamp);
+                        console.log(player.name + ': ' + timestamp);
                         if (timestamp < min) {
-                            min = player;
+                            min = timestamp;
                             firstPlayerWhoBuzzed = player;
                         }
                     });
-                    vm.firstPlayerWhoBuzzed = firstPlayerWhoBuzzed;
                 } else {
-                    vm.firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
+                    firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
                 }
+
+                vm.firstPlayerWhoBuzzed = firstPlayerWhoBuzzed;
             };
         });
 }());
