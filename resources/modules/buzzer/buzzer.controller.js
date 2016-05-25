@@ -16,10 +16,8 @@
             vm.pusherChannel = vm.pusher.subscribe('buzzer-channel');
 
             vm.pusherChannel.bind('App\\Events\\PlayerHitBuzzer', function (buzzEvent) {
-                console.log(buzzEvent);
 
                 vm.allPlayersWhoBuzzed.push(buzzEvent.player);
-                console.log(vm.allPlayersWhoBuzzed);
 
                 vm.disableBuzzer();
                 $scope.$apply();
@@ -58,27 +56,29 @@
             };
 
             vm.getFirstPlayerWhoBuzzedIn = function () {
-                var min = Number.POSITIVE_INFINITY;
+                // var min = Number.POSITIVE_INFINITY;
 
-                var firstPlayerWhoBuzzed = null;
+                // var firstPlayerWhoBuzzed = null;
+                //
+                // if(vm.allPlayersWhoBuzzed.length > 1) {
+                //     firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
+                //
+                //     //TODO: pusher sometimes receives close events out of sequence. Figure out how to handle this.
+                //     // _.each(vm.allPlayersWhoBuzzed, function (player) {
+                //     //     var timestamp = parseInt(player.last_buzz.slice(player.last_buzz.length - 12));
+                //     //     console.log(player.name + ': ' + timestamp);
+                //     //     if (timestamp < min) {
+                //     //         min = timestamp;
+                //     //         firstPlayerWhoBuzzed = player;
+                //     //     }
+                //     // });
+                // } else {
+                //     firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
+                // }
+                //
+                // vm.firstPlayerWhoBuzzed = firstPlayerWhoBuzzed;
 
-                if(vm.allPlayersWhoBuzzed.length > 1) {
-                    firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
-
-                    //TODO: pusher sometimes receives close events out of sequence. Figure out how to handle this.
-                    // _.each(vm.allPlayersWhoBuzzed, function (player) {
-                    //     var timestamp = parseInt(player.last_buzz.slice(player.last_buzz.length - 12));
-                    //     console.log(player.name + ': ' + timestamp);
-                    //     if (timestamp < min) {
-                    //         min = timestamp;
-                    //         firstPlayerWhoBuzzed = player;
-                    //     }
-                    // });
-                } else {
-                    firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
-                }
-
-                vm.firstPlayerWhoBuzzed = firstPlayerWhoBuzzed;
+                vm.firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
             };
         });
 }());

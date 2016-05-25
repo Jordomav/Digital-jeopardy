@@ -31,9 +31,9 @@ class BuzzerController extends Controller
 
         // Update the last_buzz property of the user so that game host can check who buzzed first in the when multiple
         // players hit the buzzer around the same time.
-        $user->touch();
-        $user->last_buzz = $user->updated_at->createFromFormat('U.u', microtime(true))->format('m-d-Y Hisu');
-        $user->save();
+//        $user->touch();
+//        $user->last_buzz = $user->updated_at->createFromFormat('U.u', microtime(true))->format('m-d-Y Hisu');
+//        $user->save();
 
     }
 }
