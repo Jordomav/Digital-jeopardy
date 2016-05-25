@@ -4,7 +4,8 @@
 
     @if($currentUser)
 
-    <div class="container buzzer-container" data-ng-app="jeopardyApp" data-ng-controller="buzzerController as buzzer">
+    <div class="container buzzer-container" data-ng-app="jeopardyApp" data-ng-controller="buzzerController as buzzer"
+         data-ng-init="buzzer.init('{{ $currentUser }}')">
         <button data-ng-click="buzzer.broadcastToAllPlayersInGame()"
                 data-ng-disabled="buzzer.disableBuzzer()"
                 data-ng-class="buzzer.enabledness()"
@@ -12,7 +13,7 @@
         
         <div style="color: white;">
             Debugging:
-            <h3 data-ng-if="buzzer.firstPlayerWhoBuzzed">@{{ buzzer.firstPlayerWhoBuzzed.name }}</h3>
+            <h3 data-ng-if="buzzer.firstPlayerWhoBuzzed">@{{ buzzer.firstPlayerWhoBuzzed }}</h3>
         </div>
 
         <button data-ng-click="buzzer.getFirstPlayerWhoBuzzedIn()">Get First</button>
