@@ -58,7 +58,6 @@ Route::group(['middleware' => ['web']], function () {
     */
     Route::get('buzzer', 'BuzzerController@buzzer');
 
-    // TODO: pass current authenticated user who clicked buzzer.
     Route::get('buzz', 'BuzzerController@buzz');
 });
 

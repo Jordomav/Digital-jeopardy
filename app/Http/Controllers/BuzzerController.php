@@ -25,12 +25,15 @@ class BuzzerController extends Controller
 
     public function buzz(Guard $auth)
     {
+        // Broadcast the event to all other players
         $user = view()->share('user', $auth->user());
+        event(new PlayerHitBuzzer($user));
+
+        // Update the last_buzz property of the user so that game host can check who buzzed first in the when multiple
+        // players hit the buzzer around the same time.
         $user->touch();
-//        $now = Carbon::now()->createFromFormat('U.u', microtime(true));
-//        $user->last_buzz = $now->format('m-d-Y Hisu');
         $user->last_buzz = $user->updated_at->createFromFormat('U.u', microtime(true))->format('m-d-Y Hisu');
         $user->save();
-        event(new PlayerHitBuzzer($user));
+
     }
 }

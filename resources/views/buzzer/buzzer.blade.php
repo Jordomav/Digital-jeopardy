@@ -6,8 +6,8 @@
 
     <div class="container buzzer-container" data-ng-app="jeopardyApp" data-ng-controller="buzzerController as buzzer">
         <button data-ng-click="buzzer.broadcastToAllPlayersInGame()"
-                data-ng-disabled="buzzer.disableBuzzer('{{ $currentUser }}')"
-                data-ng-class="buzzer.enabledness('{{ $currentUser }}')"
+                data-ng-disabled="buzzer.disableBuzzer()"
+                data-ng-class="buzzer.enabledness()"
                 class="buzzer"></button>
         
         <div style="color: white;">
