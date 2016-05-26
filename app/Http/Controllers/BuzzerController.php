@@ -9,6 +9,7 @@ use App\Http\Requests;
 use Illuminate\Contracts\Auth\Guard;
 use DateTime;
 use Carbon\Carbon;
+use Redis;
 
 
 class BuzzerController extends Controller
@@ -27,7 +28,11 @@ class BuzzerController extends Controller
     {
         // Broadcast the event to all other players
         $user = view()->share('user', $auth->user());
+
+        Redis::publish('buzzer-channel', json_encode($user));
+
         event(new PlayerHitBuzzer($user->name));
+
 
         // Update the last_buzz property of the user so that game host can check who buzzed first in the when multiple
         // players hit the buzzer around the same time.

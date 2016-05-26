@@ -12,23 +12,29 @@
             vm.thisPlayer = null;
 
             
-            vm.pusher = new Pusher('4792c6294d140acf74ba');
-            vm.pusherChannel = vm.pusher.subscribe('buzzer-channel');
+            // vm.pusher = new Pusher('4792c6294d140acf74ba');
+            // vm.pusherChannel = vm.pusher.subscribe('buzzer-channel');
+            //
+            // vm.pusherChannel.bind('App\\Events\\PlayerHitBuzzer', function (buzzEvent) {
+            //
+            //     vm.allPlayersWhoBuzzed.push(buzzEvent.player);
+            //
+            //     vm.disableBuzzer();
+            //     $scope.$apply();
+            // });
+            //
+            // // Enable Pusher logs
+            // Pusher.log = function(message) {
+            //     if (window.console && window.console.log) {
+            //         window.console.log(message);
+            //     }
+            // };
 
-            vm.pusherChannel.bind('App\\Events\\PlayerHitBuzzer', function (buzzEvent) {
-
-                vm.allPlayersWhoBuzzed.push(buzzEvent.player);
-
-                vm.disableBuzzer();
-                $scope.$apply();
+            var socket = io('http://192.168.10.10:3000');
+            console.log(socket);
+            socket.on('buzzer-channel:App\\Events\\PlayerHitBuzzer', function (message) {
+                console.log(message);
             });
-
-            // Enable Pusher logs
-            Pusher.log = function(message) {
-                if (window.console && window.console.log) {
-                    window.console.log(message);
-                }
-            };
 
 
             vm.init = function (thisPlayer) {

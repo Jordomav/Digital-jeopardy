@@ -17,9 +17,21 @@
         </div>
 
         <button data-ng-click="buzzer.getFirstPlayerWhoBuzzedIn()">Get First</button>
-        
+
+
     </div>
 
     @endif
 
 @endsection
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.min.js"></script>
+
+
+@section('footer')
+
+
+
+
+
+@stop
