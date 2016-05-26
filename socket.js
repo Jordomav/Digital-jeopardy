@@ -13,7 +13,6 @@ redis.on('message', function (channel, message) {
     // console.log('Message Received: ' + message);
     message = JSON.parse(message);
     // console.log(message);
-    console.log(io);
     io.emit(channel + ':' + message.event, message.data);
 });
 

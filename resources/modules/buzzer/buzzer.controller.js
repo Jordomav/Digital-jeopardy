@@ -31,9 +31,10 @@
             // };
 
             var socket = io('http://192.168.10.10:3000');
-            console.log(socket);
-            socket.on('buzzer-channel:App\\Events\\PlayerHitBuzzer', function (message) {
-                console.log(message);
+            socket.on('buzzer-channel:App\\Events\\PlayerHitBuzzer', function (payload) {
+                vm.disableBuzzer();
+                vm.allPlayersWhoBuzzed.push(payload.player);
+                $scope.$apply();
             });
 
 
