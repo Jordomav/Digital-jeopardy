@@ -28,9 +28,7 @@ class BuzzerController extends Controller
     {
         // Broadcast the event to all other players
         $user = view()->share('user', $auth->user());
-
-        Redis::publish('buzzer-channel', json_encode($user));
-
+        
         event(new PlayerHitBuzzer($user->name));
 
 
