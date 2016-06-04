@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <h1>Welcome to Custom Jeopardy!</h1>
-            <h2>Manage Games</h2>
+            <h3>Manage Games</h3>
             <div>
                 @foreach($games as $game)
                     <p>

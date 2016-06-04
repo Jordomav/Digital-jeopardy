@@ -4,8 +4,9 @@
     <div class="container">
         <div class="row">
             <h1>{{ $game->name }} Jeopardy</h1>
-            <h2>Create 6 categories</h2>
+
             <div>
+                <h3>Categories:</h3>
                 @foreach($categories as $category)
                     <p>
                         <a href="/show/{{ $category->id }}">{{ $category->title }}</a>
