@@ -4,11 +4,11 @@
     <div data-ng-app="jeopardyApp" data-ng-controller="adminController as admin" class="container">
 
         <div class="row">
-            <h3 class="col-xs-6">{{ $category->game->name }} Jeopardy&#187;{{ $category->title }}</h3>
-            <span class="col-xs-6 text-right">
+            <span class="col-xs-12 text-right">
                 <span class="option-link major"><a href="/edit-category/{{ $category->id }}">Edit Title</a></span>
                 <span class="option-link major"><a href="/delete-category/{{ $category->id }}">Delete Category</a></span>
             </span>
+            <h3 class="col-xs-12">{{ $category->game->name }} Jeopardy&#187;{{ $category->title }}</h3>
         </div>
 
         {{-- Display current questions in category --}}
@@ -49,7 +49,7 @@
             {{ csrf_field() }}
 
             <div class="row">
-                <p>Add a question to this category:</p>
+                <p>Add new question:</p>
             </div>
 
             <div class="admin-input row">
@@ -82,8 +82,8 @@
 
         </form>
 
-
-        <a href="/edit-game/{{ $category->game->id }}">Back to Game Categories</a>
+        <div class="col-xs-12 text-right"><a href="/edit-game/{{ $category->game->id }}">
+                Back to Game Categories</a></div>
 
     </div>
 
