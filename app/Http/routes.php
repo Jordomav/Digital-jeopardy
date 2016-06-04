@@ -16,11 +16,16 @@ Route::auth();
 Route::group(['middleware' => ['web']], function () {
 
     /*
-    *  Category CRUD methods for admin views.
-    */
+     *  Game CRUD methods for admin views.
+     */
     Route::get('/', 'CategoryController@index');
 
-    Route::post('add/new', 'CategoryController@store');
+    Route::post('add/new-game', 'GameAdminController@addGame');
+
+    /*
+    *  Category CRUD methods for admin views.
+    */
+    Route::post('add/new-category', 'CategoryController@store');
 
     Route::get('/show/{category}', 'CategoryController@show');
 

@@ -13,7 +13,7 @@
                     </p>
                 @endforeach
             </div>
-            <form method="POST" action="add/new">
+            <form method="POST" action="add/new-category">
 
                 {{ csrf_field() }}
 
