@@ -14,4 +14,9 @@ class Category extends Eloquent
         return $this->hasMany(Question::class);
     }
 
+    public function game()
+    {
+        return $this->belongsTo(Game::class);
+    }
+
 }

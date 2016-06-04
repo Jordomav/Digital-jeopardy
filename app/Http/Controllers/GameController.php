@@ -23,11 +23,6 @@ class GameController extends Controller
         return view('game.game');
     }
 
-    public function pusherTest()
-    {
-        event(new PlayerHitBuzzer('Neil Strain'));
-    }
-
 
     public function getGameData()
     {

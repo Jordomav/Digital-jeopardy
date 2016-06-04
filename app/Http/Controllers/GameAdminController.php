@@ -27,4 +27,10 @@ class GameAdminController extends Controller
         return redirect('/');
     }
 
+    public function edit(Game $game)
+    {
+        $categories = $game->categories;
+        return view('categories.admin-categories', compact('categories', 'game'));
+    }
+
 }

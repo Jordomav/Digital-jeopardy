@@ -13,7 +13,8 @@
                     </p>
                 @endforeach
             </div>
-            <form method="POST" action="add/new-category">
+
+            <form method="POST" action="/add/new-category/{{ $game->id }}">
 
                 {{ csrf_field() }}
 

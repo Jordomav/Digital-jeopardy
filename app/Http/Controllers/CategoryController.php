@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Category;
 use App\Question;
+use App\Game;
 use DB;
 use App;
 use Illuminate\Contracts\Auth\Guard;
@@ -24,12 +25,12 @@ class CategoryController extends Controller
         return view('games.admin-games', compact('games'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Game $game)
     {
         $category = new Category;
         $category->title = $request->title;
-        $category->save();
-        return redirect('/');
+        $game->categories()->save($category);
+        return back();
     }
 
     public function show(Category $category)
