@@ -30,7 +30,7 @@ class CategoryController extends Controller
         $category = new Category;
         $category->title = $request->title;
         $game->categories()->save($category);
-        return back();
+        return redirect('show/'.$category->id);
     }
 
     public function show(Category $category)
