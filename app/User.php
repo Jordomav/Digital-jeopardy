@@ -25,7 +25,7 @@ class User extends Eloquent implements AuthenticatableContract,
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'last_buzz'
+        'name', 'email', 'password', 'last_buzz', 'scores'
     ];
 
     /**
