@@ -31,12 +31,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('confirm-delete/{category}', 'CategoryController@confirmDelete');
 
 
-    //TODO: here for debugging - remove.
-    Route::get('logout', function () {
-        Auth::logout();
-    });
-
-
     /*
      * Question CRUD methods for admin views.
      */
