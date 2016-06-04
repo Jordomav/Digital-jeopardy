@@ -82,5 +82,12 @@
     <script src="/build/js/deps.js"></script>
     <script src="/build/js/app.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
+    {{-- Fix for bootstrap dropdown-toggle that suddenly stopped working --}}
+    <script>
+        $(document).ready(function() {
+            $(".dropdown-toggle").dropdown();
+        });
+    </script>
 </body>
 </html>
