@@ -37,6 +37,11 @@ class User extends Eloquent implements AuthenticatableContract,
         'password', 'remember_token',
     ];
 
+    protected function games()
+    {
+        return $this->hasMany(Game::class);
+    }
+
     protected function getDateFormat()
     {
         return 'U';
