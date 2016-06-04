@@ -9,6 +9,7 @@
                 @foreach($games as $game)
                     <p>
                         <a href="/edit-game/{{ $game->id }}">{{ $game->name }}</a>
+                        <a href="/game-menu/{{ $game->id }}"><span class="option-link minor">Play</span></a>
                     </p>
                 @endforeach
             </div>

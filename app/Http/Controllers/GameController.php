@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\PlayerHitBuzzer;
 use Illuminate\Http\Request;
+use App\Game;
 use App\Category;
 use App\Question;
 use DB;
@@ -12,21 +13,21 @@ use Redis;
 class GameController extends Controller
 {
 
-    public function menu()
+    public function menu(Game $game)
     {
-        return view('game.menu');
+        return view('game.menu', compact('game'));
     }
 
 
-    public function play()
+    public function play(Game $game)
     {
-        return view('game.game');
+        return view('game.game', compact($game));
     }
 
 
-    public function getGameData()
+    public function getGameData(Game $game)
     {
-        $categories = Category::all()->take(6);
+        $game->categories()->take(6);
         $questions = Question::all();
 
         return json_encode(array(

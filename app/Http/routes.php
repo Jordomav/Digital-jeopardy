@@ -58,20 +58,23 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('buzzer', 'BuzzerController@buzzer');
 
     Route::get('buzz', 'BuzzerController@buzz');
+
+
+    /*
+     *  Game Methods
+     */
+    Route::get('/game-menu/{game}', 'GameController@menu');
+
+    Route::get('/play/{game}', 'GameController@play');
+
+    Route::get('get-categories', 'GameController@getGameData');
+
+    Route::get('/home', 'HomeController@index');
+
+    Route::get('/start', 'GameController@controller');
 });
 
 
-/*
- *  Game Methods
- */
-Route::get('/game-menu', 'GameController@menu');
 
-Route::get('/play', 'GameController@play');
-
-Route::get('get-categories', 'GameController@getGameData');
-
-Route::get('/home', 'HomeController@index');
-
-Route::get('/start', 'GameController@controller');
 
 
