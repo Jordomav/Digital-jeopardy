@@ -83,7 +83,7 @@
         </form>
 
 
-        <a href="/">Go back</a>
+        <a href="/edit-game/{{ $category->game->id }}">Back to Game Categories</a>
 
     </div>
 
