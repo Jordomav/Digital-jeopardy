@@ -9,6 +9,7 @@ use App\Category;
 use App\Question;
 use DB;
 use App;
+use Illuminate\Contracts\Auth\Guard;
 
 class CategoryController extends Controller
 {
@@ -17,10 +18,10 @@ class CategoryController extends Controller
         $this->middleware('auth');
     }
     
-    public function index()
+    public function index(Guard $auth)
     {
-        $categories = Category::all();
-        return view('categories.admin-categories', compact('categories'));
+        $games = $auth->user()->games;
+        return view('games.admin-games', compact('games'));
     }
 
     public function store(Request $request)
