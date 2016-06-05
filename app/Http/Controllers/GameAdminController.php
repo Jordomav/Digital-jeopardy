@@ -30,7 +30,7 @@ class GameAdminController extends Controller
     public function edit(Game $game)
     {
         $categories = $game->categories;
-        return view('categories.admin-categories', compact('categories', 'game'));
+        return view('admin.categories.categories', compact('categories', 'game'));
     }
 
 }

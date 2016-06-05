@@ -8,11 +8,12 @@
                 <span class="option-link major"><a href="/edit-category/{{ $category->id }}">Edit Title</a></span>
                 <span class="option-link major"><a href="/delete-category/{{ $category->id }}">Delete Category</a></span>
             </span>
-            <h3 class="col-xs-12">{{ $category->game->name }} Jeopardy&#187;{{ $category->title }}</h3>
+            <h2 class="col-xs-12">{{ $category->game->name }} Jeopardy&#187;{{ $category->title }}</h2>
         </div>
 
         {{-- Display current questions in category --}}
         @if(count($category->questions) > 0)
+            <h3>Questions:</h3>
             @foreach($category->questions as $index=>$question)
                 <div class="question row">
 

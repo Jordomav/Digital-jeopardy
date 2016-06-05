@@ -22,7 +22,7 @@ class CategoryController extends Controller
     public function index(Guard $auth)
     {
         $games = $auth->user()->games;
-        return view('games.admin-games', compact('games'));
+        return view('admin.games.games', compact('games'));
     }
 
     public function store(Request $request, Game $game)
@@ -35,12 +35,12 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        return view('categories.admin-category', compact('category'));
+        return view('admin.categories.category', compact('category'));
     }
 
     public function edit(Category $category)
     {
-        return view('categories.edit-category', compact('category'));
+        return view('admin.categories.edit', compact('category'));
     }
 
     public function saveEdit(Category $category, Request $request)
@@ -51,7 +51,7 @@ class CategoryController extends Controller
 
     public function delete(Category $category)
     {
-        return view('categories.confirm-delete', compact('category'));
+        return view('admin.categories.delete', compact('category'));
     }
 
     public function confirmDelete(Category $category)

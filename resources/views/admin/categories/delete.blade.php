@@ -11,7 +11,7 @@
                 <span style="font-weight: bold;"> {{ $category->title }}</span>?
             </p>
             <p>*All questions in this category will be deleted! This action cannot be undone.</p>
-            <button type="submit">Confirm</button>
+            <button class="btn btn-danger" type="submit">Confirm</button>
             <div class="col-xs-12 admin-input">
                 <a href="/show/{{ $category->_id }}">Go back</a>
             </div>

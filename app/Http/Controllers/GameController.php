@@ -15,13 +15,13 @@ class GameController extends Controller
 
     public function menu(Game $game)
     {
-        return view('game.menu', compact('game'));
+        return view('gameplay.game.menu', compact('game'));
     }
 
 
     public function play(Game $game)
     {
-        return view('game.game', compact($game));
+        return view('gameplay.game.game', compact($game));
     }
 
 

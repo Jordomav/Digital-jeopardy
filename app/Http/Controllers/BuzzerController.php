@@ -20,7 +20,7 @@ class BuzzerController extends Controller
     
     public function buzzer(Guard $auth)
     {
-        return view('buzzer.buzzer')->with('currentUser', $auth->user());
+        return view('gameplay.buzzer.buzzer')->with('currentUser', $auth->user());
     }
 
     public function buzz(Guard $auth)
