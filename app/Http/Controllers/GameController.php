@@ -32,8 +32,7 @@ class GameController extends Controller
 
     public function play(Game $game)
     {
-        $categories = $game->categories;
-        return view('gameplay.game.game', compact('game', 'categories'));
+        return view('gameplay.game.game', compact('game'));
     }
 
 
