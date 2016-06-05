@@ -18,4 +18,10 @@ class Game extends Eloquent
     {
         return $this->hasMany(User::class);
     }
+
+    public function makeJoinCode()
+    {
+        $name = strtolower(str_replace(' ', '-', $this->name)).'-'.str_random(6).'jeopardy.app';
+        return $name;
+    }
 }

@@ -63,6 +63,8 @@ Route::group(['middleware' => ['web']], function () {
     /*
      *  Game Methods
      */
+    Route::post('join', 'GameController@join');
+
     Route::get('/game-menu/{game}', 'GameController@menu');
 
     Route::get('/play/{game}', 'GameController@play');

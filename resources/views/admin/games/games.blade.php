@@ -6,7 +6,11 @@
 
             <div class="col-xs-8"><h1>Welcome to Custom Jeopardy!</h1></div>
 
-            <div class="col-xs-4 text-right"><button class="btn btn-success">Join Game!</button></div>
+            <div class="col-xs-4 text-right">`
+                <button class="btn btn-success" data-toggle="modal" data-target="#enterGameIdModal">
+                    Join Game!
+                </button>
+            </div>
 
             <div class="col-xs-12">
                 <h3>Your Games</h3>
@@ -31,7 +35,7 @@
                             Add Game
                         </label>
                         <div class="col-xs-12">
-                            <input class=type="text" name="name">
+                            <input type="text" name="name">
                             <button type="submit">Save</button>
                         </div>
                     </div>
@@ -42,6 +46,40 @@
 
         </div>
     </div>
+
+    <!-- Enter Game ID Modal -->
+    <div id="enterGameIdModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Join a Game</h4>
+                </div>
+
+                <form method="POST" action="/join" enctype="multipart/form-data">>
+
+                    {{ csrf_field() }}
+
+                    <label for="game-id" class="col-xs-12">
+                        Game ID
+                    </label>
+                    <div class="col-xs-12">
+                        <input type="text" name="game-id">
+                        <button type="submit" class="btn btn-success ">Join!</button>
+                    </div>
+                </form>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
     </body>
 
 @endsection

@@ -19,6 +19,12 @@ class GameController extends Controller
     }
 
 
+    public function join(Request $request)
+    {
+        return json_encode($request->all());
+    }
+
+
     public function play(Game $game)
     {
         $categories = $game->categories;
@@ -37,6 +43,7 @@ class GameController extends Controller
 
         return json_encode(['game' => $game]);
     }
+
 
     public function controller()
     {
