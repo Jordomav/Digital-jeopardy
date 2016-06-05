@@ -3,30 +3,40 @@
     <body style="background-color: white;">
     <div class="container">
         <div class="row">
-            <h1>Welcome to Custom Jeopardy!</h1>
-            <h3>Manage Games</h3>
-            <div>
+
+            <div class="col-xs-8"><h1>Welcome to Custom Jeopardy!</h1></div>
+
+            <div class="col-xs-4 text-right"><button class="btn btn-success">Join Game!</button></div>
+
+            <div class="col-xs-12">
+                <h3>Your Games</h3>
+
                 @foreach($games as $game)
-                    <p>
-                        <a href="/edit-game/{{ $game->id }}">{{ $game->name }}</a>
-                        <a href="/game-menu/{{ $game->id }}"><span class="option-link minor">Play</span></a>
-                    </p>
+                    <ul>
+                        <li class="row" style="list-style: none;">
+                            <a href="/edit-game/{{ $game->id }}" class="col-xs-2">{{ $game->name }}</a>
+                            <a href="/game-menu/{{ $game->id }}" class="col-xs-2"><span class="option-link minor">Play</span></a>
+                        </li>
+                    </ul>
                 @endforeach
             </div>
-            <form method="POST" action="add/new-game">
 
-                {{ csrf_field() }}
+            <div class="col-xs-12">
+                <form method="POST" action="add/new-game">
 
-                <div>
+                    {{ csrf_field() }}
+
                     <label for="new-game">
                         Add Game
-                        <input class="col-xs-12" type="text" name="name">
+                        <input type="text" name="name">
                     </label>
-                </div>
 
-                <button type="submit">Save</button>
+                    <button type="submit">Save</button>
 
-            </form>
+                </form>
+            </div>
+
+
         </div>
     </div>
     </body>
