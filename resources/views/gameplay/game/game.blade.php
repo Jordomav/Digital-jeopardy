@@ -1,7 +1,7 @@
 @extends('layouts.jeopardy')
 @section('content')
 
-    <div class="container"
+    <div class="container game-screen"
          data-ng-app="jeopardyApp"
          data-ng-controller="jeopardyController as game">
 
