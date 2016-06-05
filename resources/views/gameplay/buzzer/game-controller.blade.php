@@ -9,7 +9,7 @@
                 <button class="buzzer" data-ng-click="game.buttonClick()"></button>
             </div>
             <div>
-                <h1 class="score">$1000</h1>
+                <h1 class="white-text">$1000</h1>
             </div>
         </div>
 </div>

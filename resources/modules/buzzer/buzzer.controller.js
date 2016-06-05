@@ -32,7 +32,8 @@
 
 
             vm.init = function (thisPlayer) {
-                vm.thisPlayer = thisPlayer;
+                vm.thisPlayer = JSON.parse(thisPlayer);
+                console.log(vm.thisPlayer);
             };
 
             // TODO: make host controller that resets button for all players (when player answers incorrectly, and every

@@ -18,9 +18,11 @@
 
         <button data-ng-click="buzzer.getFirstPlayerWhoBuzzedIn()">Get First</button>
 
-        <div>
+        <div class="white-text">
+            <span>@{{ buzzer.thisPlayer.name }}: </span>
+
             {{-- TODO: Display player score --}}
-            <p class="score">$@{{ buzzer.currentUserScore || 0 }}</p>
+            <span>$@{{ buzzer.currentUserScore || 0 }}</span>
         </div>
         
     </div>
