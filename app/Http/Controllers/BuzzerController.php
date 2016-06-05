@@ -27,7 +27,7 @@ class BuzzerController extends Controller
     {
         // Broadcast the event to all other players
         $user = view()->share('user', $auth->user());
-        event(new PlayerHitBuzzer($user->name));
+        event(new PlayerHitBuzzer([ 'name' => $user->name, 'id' => $user->id ]));
 
         // Update the last_buzz property of the user so that game host can check who buzzed first in the when multiple
         // players hit the buzzer around the same time.
