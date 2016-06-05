@@ -21,17 +21,20 @@
                 @endforeach
             </div>
 
-            <div class="col-xs-12">
+            <div class="admin-form col-xs-12" style="margin-top: 30px;">
                 <form method="POST" action="add/new-game">
 
                     {{ csrf_field() }}
 
-                    <label for="new-game">
-                        Add Game
-                        <input type="text" name="name">
-                    </label>
-
-                    <button type="submit">Save</button>
+                    <div class="form-group col-xs-4">
+                        <label class="col-xs-12" for="name">
+                            Add Game
+                        </label>
+                        <div class="col-xs-12">
+                            <input class=type="text" name="name">
+                            <button type="submit">Save</button>
+                        </div>
+                    </div>
 
                 </form>
             </div>
