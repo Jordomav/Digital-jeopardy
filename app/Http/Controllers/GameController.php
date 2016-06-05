@@ -9,6 +9,8 @@ use App\Category;
 use App\Question;
 use DB;
 use Redis;
+use Illuminate\Contracts\Auth\Guard;
+
 
 class GameController extends Controller
 {
@@ -16,7 +18,8 @@ class GameController extends Controller
     public function menu(Game $game)
     {
         $game->join_code = $game->makeJoinCode();
-        
+        $game->save();
+
         return view('gameplay.game.menu', compact('game'));
     }
 
