@@ -16,7 +16,6 @@
             vm.init = function (id) {
                 return getGameData(id)
                     .then(function successCallback(res) {
-                        console.log(res);
                         vm.gameData = res.data;
                     },
                         function errorCallback(err) {

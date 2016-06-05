@@ -8,10 +8,6 @@
 
         <div data-ng-init="game.setGame('{{ $game->id }}')" class="row">
 
-            {{ json_encode($game) }}
-
-            {{ json_encode($categories) }}
-
             <div data-ng-repeat="category in game.categories" class="category col-xs-2">
 
                 @{{ category.title }}
