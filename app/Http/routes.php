@@ -67,7 +67,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/play/{game}', 'GameController@play');
 
-    Route::get('get-categories', 'GameController@getGameData');
+    Route::get('get-categories/{game}', 'GameController@getGameData');
 
     Route::get('/home', 'HomeController@index');
 

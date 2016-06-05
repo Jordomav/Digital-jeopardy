@@ -13,9 +13,10 @@
 
             vm.gameData = [];
 
-            vm.init = function () {
-                return getGameData()
+            vm.init = function (id) {
+                return getGameData(id)
                     .then(function successCallback(res) {
+                        console.log(res);
                         vm.gameData = res.data;
                     },
                         function errorCallback(err) {
@@ -24,8 +25,9 @@
                         });
             };
 
-            function getGameData() {
-                return $http.get('get-categories');
+            function getGameData(id) {
+                console.log(id);
+                return $http.get('/get-categories/'+id);
             }
 
 

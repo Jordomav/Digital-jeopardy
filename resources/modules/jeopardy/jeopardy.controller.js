@@ -7,17 +7,18 @@
         .controller('jeopardyController', function($http, Jeopardy){
             
             var vm = this;
-            
-            vm.testing = 'hi hi hi';
 
             vm.gameData = [];
             vm.categories = [];
 
-            renderGameboard();
+            vm.setGame = function (id) {
+                renderGameboard(id);
+            };
 
-            function renderGameboard() {
-                Jeopardy.init()
+            function renderGameboard(id) {
+                Jeopardy.init(id)
                     .then( function () {
+                        console.log(Jeopardy.gameData);
                         vm.gameData = Jeopardy.gameData;
                         populateCategories();
                     });

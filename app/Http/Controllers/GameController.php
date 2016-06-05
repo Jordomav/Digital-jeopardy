@@ -21,18 +21,21 @@ class GameController extends Controller
 
     public function play(Game $game)
     {
-        return view('gameplay.game.game', compact($game));
+        $categories = $game->categories;
+        return view('gameplay.game.game', compact('game', 'categories'));
     }
 
 
     public function getGameData(Game $game)
     {
-        $game->categories()->take(6);
-        $questions = Question::all();
+        $categories = $game->categories;
 
-        return json_encode(array(
-                'categories' => $categories,
-                'questions' => $questions));
+        $questions = [];
+        foreach($categories as $category) {
+            array_push($questions, $category->questions);
+        }
+
+        return json_encode(['game' => $game]);
     }
 
     public function controller()
