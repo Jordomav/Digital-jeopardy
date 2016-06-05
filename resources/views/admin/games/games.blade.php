@@ -19,7 +19,9 @@
                     <ul>
                         <li class="row" style="list-style: none;">
                             <a href="/edit-game/{{ $game->id }}" class="col-xs-2">{{ $game->name }}</a>
-                            <a href="/game-menu/{{ $game->id }}" class="col-xs-2"><span class="option-link minor">Play</span></a>
+                            <a href="/game-menu/{{ $game->id }}" class="col-xs-2">
+                                <span class="option-link minor">Play</span>
+                            </a>
                         </li>
                     </ul>
                 @endforeach

@@ -23,7 +23,7 @@ class GameAdminController extends Controller
         ]);
 
         $auth->user()->games()->save($game);
-
+        
         return redirect('/');
     }
 

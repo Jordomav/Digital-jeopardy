@@ -7,7 +7,7 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 class Game extends Eloquent
 {
-    protected $fillable = ['admin', 'name', 'users', 'categories', 'scores'];
+    protected $fillable = ['admin', 'name', 'users', 'categories', 'scores', 'join_code'];
 
     public function categories()
     {
@@ -21,7 +21,7 @@ class Game extends Eloquent
 
     public function makeJoinCode()
     {
-        $name = strtolower(str_replace(' ', '-', $this->name)).'-'.str_random(6).'jeopardy.app';
-        return $name;
+        $name = strtolower(str_replace(' ', '-', $this->name));
+        return preg_replace('/[^A-Za-z0-9\-]/', '', $name).'-'.str_random(6).'.jeopardy.app';
     }
 }
