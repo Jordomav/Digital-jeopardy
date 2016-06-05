@@ -55,15 +55,19 @@
                 }
             };
 
+            // TODO: pusher sometimes receives close events out of sequence. Figure out how to handle this.
+            // (todo cont...) Also clean this crap up.
             vm.getFirstPlayerWhoBuzzedIn = function () {
+
+                vm.firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
+
                 // var min = Number.POSITIVE_INFINITY;
 
                 // var firstPlayerWhoBuzzed = null;
                 //
                 // if(vm.allPlayersWhoBuzzed.length > 1) {
                 //     firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
-                //
-                //     //TODO: pusher sometimes receives close events out of sequence. Figure out how to handle this.
+
                 //     // _.each(vm.allPlayersWhoBuzzed, function (player) {
                 //     //     var timestamp = parseInt(player.last_buzz.slice(player.last_buzz.length - 12));
                 //     //     console.log(player.name + ': ' + timestamp);
@@ -77,8 +81,6 @@
                 // }
                 //
                 // vm.firstPlayerWhoBuzzed = firstPlayerWhoBuzzed;
-
-                vm.firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
             };
         });
 }());
