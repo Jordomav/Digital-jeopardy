@@ -100,20 +100,25 @@ body {
 }
 
 //User buzzer
-.buzzer {
-  background-color: red;
-  width: 350px;
-  height: 350px;
-  border: solid black 4px;
-  border-radius:400px;
-  font-size: 100px;
-  color:white;
+.buzzer-container {
+  padding: 40px;
+
+  .buzzer {
+    background-color: red;
+    width: 350px;
+    height: 350px;
+    border: solid black 4px;
+    border-radius:400px;
+    font-size: 100px;
+    color:white;
+  }
+
+  .buzzer-disabled {
+    .buzzer;
+    background-color: dimgray;
+  }
 }
 
-.buzzer-disabled {
-  .buzzer;
-  background-color: dimgray;
-}
 
 .user-name, .score{
   text-align: center;
