@@ -60,7 +60,7 @@
                     <h4 class="modal-title">Join a Game</h4>
                 </div>
 
-                <form method="POST" action="/join" enctype="multipart/form-data">>
+                <form method="POST" action="/join" enctype="multipart/form-data">
 
                     {{ csrf_field() }}
 
@@ -68,7 +68,7 @@
                         Game ID
                     </label>
                     <div class="col-xs-12">
-                        <input type="text" name="game-id">
+                        <input type="text" name="join_code">
                         <button type="submit" class="btn btn-success ">Join!</button>
                     </div>
                 </form>

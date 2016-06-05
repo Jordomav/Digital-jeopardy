@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Game;
 use App\Events\PlayerHitBuzzer;
 use App\Http\Requests;
 use Illuminate\Contracts\Auth\Guard;
@@ -18,9 +19,12 @@ class BuzzerController extends Controller
         $this->middleware('auth');
     }
     
-    public function buzzer(Guard $auth)
+    public function buzzer(Game $game, Guard $auth)
     {
-        return view('gameplay.buzzer.buzzer')->with('currentUser', $auth->user());
+        return view('gameplay.buzzer.buzzer')->with([
+            'currentUser' => $auth->user(),
+            'game' => $game
+        ]);
     }
 
     public function buzz(Guard $auth)

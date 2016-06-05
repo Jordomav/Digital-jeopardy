@@ -55,7 +55,7 @@ Route::group(['middleware' => ['web']], function () {
     /*
     *  Buzzer Methods
     */
-    Route::get('buzzer', 'BuzzerController@buzzer');
+    Route::get('buzzer/{game}', 'BuzzerController@buzzer');
 
     Route::get('buzz', 'BuzzerController@buzz');
 

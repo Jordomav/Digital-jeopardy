@@ -6,6 +6,7 @@
 
     <div class="container buzzer-container text-center" data-ng-app="jeopardyApp" data-ng-controller="buzzerController as buzzer"
          data-ng-init="buzzer.init('{{ $currentUser }}')">
+        <h2 class="white-text">{{ $game->name.' Jeopardy'}}</h2>
         <button data-ng-click="buzzer.broadcastToAllPlayersInGame()"
                 data-ng-disabled="buzzer.disableBuzzer()"
                 data-ng-class="buzzer.enabledness()"
