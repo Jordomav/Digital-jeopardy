@@ -39,12 +39,10 @@ class GameController extends Controller
 
     public function getGameData(Game $game)
     {
-        $categories = $game->categories;
-
-        $questions = [];
-        foreach($categories as $category) {
-            array_push($questions, $category->questions);
-        }
+        // Lazy eager load categories and questions to be embedded in the returned game object.
+        $game->load(['categories' => function ($category) {
+            $category->with('questions');
+        }]);
 
         return json_encode(['game' => $game]);
     }
