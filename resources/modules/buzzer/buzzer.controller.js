@@ -44,8 +44,9 @@
                     return true;
             };
 
+            // TODO: We need to broadcast this for the specific game the player is a part of.
             vm.broadcastToAllPlayersInGame = function () {
-                $http.get('buzz');
+                $http.get('/buzz');
             };
 
             // Returns css class for gray buzzer to ng-class
