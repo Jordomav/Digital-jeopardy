@@ -11,16 +11,16 @@ class PlayerHitBuzzer extends Event implements ShouldBroadcast
 {
     use SerializesModels;
 
-    public $user;
+    public $player;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($player)
     {
-        $this->user = $user;
+        $this->player = $player;
     }
 
     /**

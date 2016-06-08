@@ -16,11 +16,16 @@ Route::auth();
 Route::group(['middleware' => ['web']], function () {
 
     /*
+     *  Game CRUD methods for admin views.
+     */
+    Route::get('/', 'CategoryController@index');
+    Route::post('add/new-game', 'GameAdminController@addGame');
+    Route::get('edit-game/{game}', 'GameAdminController@edit');
+
+    /*
     *  Category CRUD methods for admin views.
     */
-    Route::get('/', 'CategoryController@index');
-
-    Route::post('add/new', 'CategoryController@store');
+    Route::post('add/new-category/{game}', 'CategoryController@store');
 
     Route::get('/show/{category}', 'CategoryController@show');
 
@@ -29,12 +34,6 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('delete-category/{category}', 'CategoryController@delete');
     Route::post('confirm-delete/{category}', 'CategoryController@confirmDelete');
-
-
-    //TODO: here for debugging - remove.
-    Route::get('logout', function () {
-        Auth::logout();
-    });
 
 
     /*
@@ -56,24 +55,28 @@ Route::group(['middleware' => ['web']], function () {
     /*
     *  Buzzer Methods
     */
-    Route::get('buzzer', 'BuzzerController@buzzer');
+    Route::get('buzzer/{game}', 'BuzzerController@buzzer');
 
-    // TODO: pass current authenticated user who clicked buzzer.
     Route::get('buzz', 'BuzzerController@buzz');
+
+
+    /*
+     *  Game Methods
+     */
+    Route::post('join', 'GameController@join');
+
+    Route::get('/game-menu/{game}', 'GameController@menu');
+
+    Route::get('/play/{game}', 'GameController@play');
+
+    Route::get('get-categories/{game}', 'GameController@getGameData');
+
+    Route::get('/home', 'HomeController@index');
+
+    Route::get('/start', 'GameController@controller');
 });
 
 
-/*
- *  Game Methods
- */
-Route::get('/game-menu', 'GameController@menu');
 
-Route::get('/play', 'GameController@play');
-
-Route::get('get-categories', 'GameController@getGameData');
-
-Route::get('/home', 'HomeController@index');
-
-Route::get('/start', 'GameController@controller');
 
 

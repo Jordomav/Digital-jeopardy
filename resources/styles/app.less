@@ -2,6 +2,14 @@ body {
   background-color: #060CE9;
 }
 
+li {
+  list-style-type: none;
+}
+
+.admin-form {
+  margin-top: 30px;
+}
+
 .main {
   font-family: 'Fjalla One', sans-serif;
   font-size: 175px;
@@ -68,6 +76,10 @@ body {
 
 
 // Reset modal styles to make it look like we aren't using a modal.
+.game-screen {
+  margin-top: 50px;
+}
+
 .custombox-overlay,
 .modal-content {
   background-color: #060ce9 !important;
@@ -77,14 +89,13 @@ body {
 }
 
 .custombox-modal-push {
-  padding-top: 3%;
+  padding-top: 112px;
 }
 
 .custombox-modal-container,
 .custombox-modal,
 .custombox-modal-push {
   width: 100vw !important;
-  height: 100vh !important;
   margin: 0 !important;
 
   .modal-content,
@@ -100,22 +111,27 @@ body {
 }
 
 //User buzzer
-.buzzer {
-  background-color: red;
-  width: 350px;
-  height: 350px;
-  border: solid black 4px;
-  border-radius:400px;
-  font-size: 100px;
-  color:white;
+.buzzer-container {
+  padding: 40px;
+
+  .buzzer {
+    background-color: red;
+    width: 350px;
+    height: 350px;
+    border: solid black 4px;
+    border-radius:400px;
+    font-size: 100px;
+    color:white;
+  }
+
+  .buzzer-disabled {
+    .buzzer;
+    background-color: dimgray;
+  }
 }
 
-.buzzer-disabled {
-  .buzzer;
-  background-color: dimgray;
-}
 
-.user-name, .score{
+.user-name, .white-text {
   text-align: center;
   color:white;
 }

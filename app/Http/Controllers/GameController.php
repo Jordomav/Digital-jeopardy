@@ -4,40 +4,52 @@ namespace App\Http\Controllers;
 
 use App\Events\PlayerHitBuzzer;
 use Illuminate\Http\Request;
+use App\Game;
 use App\Category;
 use App\Question;
 use DB;
 use Redis;
+use Illuminate\Contracts\Auth\Guard;
+
 
 class GameController extends Controller
 {
 
-    public function menu()
+    public function menu(Game $game)
     {
-        return view('game.menu');
+        $game->join_code = $game->makeJoinCode();
+        $game->save();
+
+        return view('gameplay.game.menu', compact('game'));
     }
 
 
-    public function play()
+    public function join(Request $request)
     {
-        return view('game.game');
+        $game = Game::all()->where('join_code', $request->join_code)->first();
+
+        return redirect('/buzzer/'.$game->id);
+
+        return json_encode($request->all());
     }
 
-    public function pusherTest()
+
+    public function play(Game $game)
     {
-        event(new PlayerHitBuzzer('Neil Strain'));
+        return view('gameplay.game.game', compact('game'));
     }
 
 
-    public function getGameData()
+    public function getGameData(Game $game)
     {
-        $categories = Category::all()->take(6);
-        $questions = Question::all();
+        // Lazy eager load categories and questions to be embedded in the returned game object.
+        $game->load(['categories' => function ($category) {
+            $category->with('questions');
+        }]);
 
-        return json_encode(array(
-                'categories' => $categories,
-                'questions' => $questions));
+        return json_encode(['game' => $game]);
     }
+
 
     public function controller()
     {

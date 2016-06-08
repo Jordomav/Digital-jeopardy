@@ -7,18 +7,19 @@
         .controller('jeopardyController', function($http, Jeopardy){
             
             var vm = this;
-            
-            vm.testing = 'hi hi hi';
 
             vm.gameData = [];
             vm.categories = [];
 
-            renderGameboard();
+            vm.setGame = function (id) {
+                renderGameboard(id);
+            };
 
-            function renderGameboard() {
-                Jeopardy.init()
+            function renderGameboard(id) {
+                Jeopardy.init(id)
                     .then( function () {
-                        vm.gameData = Jeopardy.gameData;
+                        console.log(Jeopardy.gameData);
+                        vm.gameData = Jeopardy.gameData.game;
                         populateCategories();
                     });
             }
@@ -27,27 +28,20 @@
             // use in our view.
             function populateCategories() {
 
-                _.forEach( vm.gameData.categories, function (category) {
+                _.forEach(vm.gameData.categories, function (category) {
 
-                    category.questions = [];
                     var money = 100,
                         i = 1;
 
-                    _.forEach(vm.gameData.questions, function (question) {
-
-                        if (question.category_id === category._id) {
-
-                            //Assign monetary value to each question
-                            question.money = (money * i);
-
-                            category.questions.push(question);
-                            i++;
-                        }
+                    _.forEach(category.questions, function (question) {
+                        
+                        //Assign monetary value to each question
+                        question.money = (money * i);
+                        i++;
                     });
 
                     vm.categories.push(category);
                 });
-                console.log(vm.categories);
             }
 
             vm.selectQuestion = function (question) {

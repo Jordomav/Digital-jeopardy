@@ -7,39 +7,47 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Category;
 use App\Question;
+use App\Game;
 use DB;
 use App;
+use Illuminate\Contracts\Auth\Guard;
 
 class CategoryController extends Controller
 {
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
-    
-    public function index()
+
+    public function __construct()
     {
-        $categories = Category::all();
-        return view('categories.admin-categories', compact('categories'));
+        $this->middleware('auth');
     }
 
-    public function store(Request $request)
+
+    public function index(Guard $auth)
+    {
+        $games = $auth->user()->games;
+        return view('admin.games.games', compact('games'));
+    }
+
+
+    public function store(Request $request, Game $game)
     {
         $category = new Category;
         $category->title = $request->title;
-        $category->save();
-        return redirect('/');
+        $game->categories()->save($category);
+        return redirect('show/'.$category->id);
     }
+
 
     public function show(Category $category)
     {
-        return view('categories.admin-category', compact('category'));
+        return view('admin.categories.category', compact('category'));
     }
+
 
     public function edit(Category $category)
     {
-        return view('categories.edit-category', compact('category'));
+        return view('admin.categories.edit', compact('category'));
     }
+
 
     public function saveEdit(Category $category, Request $request)
     {
@@ -47,15 +55,18 @@ class CategoryController extends Controller
         return redirect('/show/'.$category->_id);
     }
 
+
     public function delete(Category $category)
     {
-        return view('categories.confirm-delete', compact('category'));
+        return view('admin.categories.delete', compact('category'));
     }
 
+    
     public function confirmDelete(Category $category)
     {
+        $game = $category->game;
         $category->delete();
-        return redirect('/');
+        return redirect('/edit-game/'.$game->id);
     }
 }
 

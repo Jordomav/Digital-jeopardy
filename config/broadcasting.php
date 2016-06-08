@@ -13,6 +13,8 @@ return [
     |
     */
 
+    // If pusher not broadcasting, try in vagrant ssh: s udo ntpdate ntp.ubuntu.com
+    
     'default' => env('BROADCAST_DRIVER', 'pusher'),
 
     /*

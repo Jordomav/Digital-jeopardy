@@ -9,64 +9,79 @@
             var vm = this;
             vm.allPlayersWhoBuzzed = [];
             vm.firstPlayerWhoBuzzed = null;
-
             vm.thisPlayer = null;
 
-            // TODO: make host controller that resets button for all players (when player answers incorrectly, and every
-            // (todo cont...) time a new question is selected.
-            var resetAllBuzzers = true;
             
             vm.pusher = new Pusher('4792c6294d140acf74ba');
             vm.pusherChannel = vm.pusher.subscribe('buzzer-channel');
 
             vm.pusherChannel.bind('App\\Events\\PlayerHitBuzzer', function (buzzEvent) {
 
-                resetAllBuzzers = false;
+                vm.allPlayersWhoBuzzed.push(buzzEvent.player);
 
-                console.log(parseInt(buzzEvent.user.updated_at));
-
-                vm.allPlayersWhoBuzzed.push(buzzEvent.user);
+                vm.disableBuzzer();
+                $scope.$apply();
             });
 
-            vm.buttonDisabled = function (currentUser) {
-                vm.thisPlayer = JSON.parse(currentUser);
-
-                if ( !resetAllBuzzers ) {
-                    return vm.allPlayersWhoBuzzed !== vm.thisPlayer;
+            // Enable Pusher logs
+            Pusher.log = function(message) {
+                if (window.console && window.console.log) {
+                    window.console.log(message);
                 }
             };
 
-            vm.broadcastToAllPlayersInGame = function () {
-                $http.get('buzz');
+
+            vm.init = function (thisPlayer) {
+                vm.thisPlayer = JSON.parse(thisPlayer);
             };
 
-            vm.enabledness = function (currentUser) {
-                if (vm.buttonDisabled(currentUser)) {
+            // TODO: make host controller that resets button for all players (when player answers incorrectly, and every
+            // (todo cont...) time a new question is selected.
+            var resetAllBuzzers = function () {};
+
+            vm.disableBuzzer = function () {
+                if (vm.allPlayersWhoBuzzed.length > 0)
+                    return true;
+            };
+
+            // TODO: We need to broadcast this for the specific game the player is a part of.
+            vm.broadcastToAllPlayersInGame = function () {
+                $http.get('/buzz');
+            };
+
+            // Returns css class for gray buzzer to ng-class
+            vm.enabledness = function () {
+                if (vm.disableBuzzer() === true) {
                     return 'buzzer-disabled';
                 }
             };
 
+            // TODO: pusher sometimes receives close events out of sequence. Figure out how to handle this.
+            // (todo cont...) Also clean this crap up.
             vm.getFirstPlayerWhoBuzzedIn = function () {
-                var min = Number.POSITIVE_INFINITY;
 
-                var firstPlayerWhoBuzzed = null;
+                vm.firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
 
-                if(vm.allPlayersWhoBuzzed.length > 1) {
-                    _.each(vm.allPlayersWhoBuzzed, function (player) {
-                        console.log(player);
-                        var timestamp = parseInt(player.last_buzz.slice(player.last_buzz.length - 12));
-                        console.log(timestamp);
-                        if (timestamp < min) {
-                            min = player;
-                            firstPlayerWhoBuzzed = player;
-                        }
-                    });
-                    vm.firstPlayerWhoBuzzed = firstPlayerWhoBuzzed;
-                    console.log(firstPlayerWhoBuzzed);
-                } else {
-                    vm.firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
-                }
+                // var min = Number.POSITIVE_INFINITY;
 
+                // var firstPlayerWhoBuzzed = null;
+                //
+                // if(vm.allPlayersWhoBuzzed.length > 1) {
+                //     firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
+
+                //     // _.each(vm.allPlayersWhoBuzzed, function (player) {
+                //     //     var timestamp = parseInt(player.last_buzz.slice(player.last_buzz.length - 12));
+                //     //     console.log(player.name + ': ' + timestamp);
+                //     //     if (timestamp < min) {
+                //     //         min = timestamp;
+                //     //         firstPlayerWhoBuzzed = player;
+                //     //     }
+                //     // });
+                // } else {
+                //     firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
+                // }
+                //
+                // vm.firstPlayerWhoBuzzed = firstPlayerWhoBuzzed;
             };
         });
 }());

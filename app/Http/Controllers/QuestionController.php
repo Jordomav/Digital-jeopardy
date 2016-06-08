@@ -32,7 +32,7 @@ class QuestionController extends Controller
 
     public function edit(Question $question)
     {
-        return view('questions.edit-question', compact('question'));
+        return view('admin.questions.edit', compact('question'));
     }
 
     public function saveEdit(Question $question, Request $request)

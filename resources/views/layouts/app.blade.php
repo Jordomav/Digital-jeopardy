@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Jeopardy</title>
+    <title>Digital Jeopardy</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -42,14 +42,14 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Jeopardy
+                    Digital Jeopardy
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/game-menu') }}">Play</a></li>
+                    {{----}}
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -84,5 +84,12 @@
     <script src="/build/js/app.js"></script>
 
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
+    {{-- Fix for bootstrap dropdown-toggle that suddenly stopped working --}}
+    <script>
+        $(document).ready(function() {
+            $(".dropdown-toggle").dropdown();
+        });
+    </script>
 </body>
 </html>
