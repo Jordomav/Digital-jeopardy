@@ -20,7 +20,7 @@ class PlayerHitBuzzer extends Event implements ShouldBroadcast
      */
     public function __construct($player)
     {
-        $this->player = $player;
+        $this->player = $player; // this is the event data that we send along with the Pusher broadcast
     }
 
     /**

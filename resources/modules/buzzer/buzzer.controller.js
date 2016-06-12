@@ -12,7 +12,7 @@
             vm.thisPlayer = null;
 
             
-            vm.pusher = new Pusher('4792c6294d140acf74ba');
+            vm.pusher = new Pusher('4792c6294d140acf74ba'); // Pusher app key
             vm.pusherChannel = vm.pusher.subscribe('buzzer-channel');
 
             vm.pusherChannel.bind('App\\Events\\PlayerHitBuzzer', function (buzzEvent) {
