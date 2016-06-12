@@ -33,8 +33,10 @@
                 });
                 
 
+                // vm.pusherResetEventChannel = vm.pusher.subscribe('buzzer-reset.' + vm.thisGameJoinCode);
                 vm.pusherResetEventChannel = vm.pusher.subscribe('buzzer-reset.' + vm.thisGameJoinCode);
                 vm.pusherResetEventChannel.bind('App\\Events\\ResetBuzzer', function (resetEvent) {
+                    console.log(resetEvent);
                     vm.enableBuzzer();
                     $scope.$apply();
                 });

@@ -54,7 +54,6 @@ class BuzzerController extends Controller
 
     public function resetBuzzer($joinCode)
     {
-        $game = Game::where('join_code', $joinCode)->first();
-        event(new ResetBuzzer(['join_code' => $joinCode ]));
+        event(new ResetBuzzer($joinCode));
     }
 }

@@ -11,7 +11,7 @@ class ResetBuzzer extends Event implements ShouldBroadcast
 {
     use SerializesModels;
 
-    public $game;
+    public $join_code;
 
     /**
      * Create a new event instance.
