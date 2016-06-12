@@ -10,6 +10,13 @@
             vm.allPlayersWhoBuzzed = [];
             vm.firstPlayerWhoBuzzed = null;
             vm.thisPlayer = null;
+            vm.thisGameId = null;
+
+            vm.init = function (thisPlayer, thisGameId) {
+                console.log(thisPlayer, thisGameId);
+                vm.thisPlayer = JSON.parse(thisPlayer);
+                vm.thisGameId = thisGameId;
+            };
 
             
             vm.pusher = new Pusher('4792c6294d140acf74ba'); // Pusher app key
@@ -31,9 +38,7 @@
             };
 
 
-            vm.init = function (thisPlayer) {
-                vm.thisPlayer = JSON.parse(thisPlayer);
-            };
+
 
             // TODO: make host controller that resets button for all players (when player answers incorrectly, and every
             // (todo cont...) time a new question is selected.
@@ -46,7 +51,7 @@
 
             // TODO: We need to broadcast this for the specific game the player is a part of.
             vm.broadcastToAllPlayersInGame = function () {
-                $http.get('/buzz');
+                $http.get('/buzz/' + vm.thisGameId);
             };
 
             // Returns css class for gray buzzer to ng-class
