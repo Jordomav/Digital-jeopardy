@@ -9,7 +9,6 @@
             var vm = this;
 
             vm.resetBuzzers = function (joinCode) {
-                console.log(joinCode);
                 $http.get('/reset-buzzer/' + joinCode);
             };
 

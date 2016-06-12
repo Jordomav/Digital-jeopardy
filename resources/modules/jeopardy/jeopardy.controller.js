@@ -10,7 +10,7 @@
 
             vm.gameData = [];
             vm.categories = [];
-            
+
 
             vm.setGame = function (id) {
                 renderGameboard(id);
@@ -61,11 +61,6 @@
 
             vm.returnToGameboard = function () {
                 Jeopardy.returnToGameboard();
-            };
-
-
-            vm.buttonClick = function () {
-                console.log('Hello');
             };
 
 
