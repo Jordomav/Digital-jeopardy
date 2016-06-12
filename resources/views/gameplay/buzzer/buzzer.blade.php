@@ -8,9 +8,9 @@
          data-ng-init="buzzer.init('{{ $currentUser }}', '{{ $game->join_code }}')">
         <h2 class="white-text">{{ $game->name.' Jeopardy'}}</h2>
         <button data-ng-click="buzzer.broadcastToAllPlayersInGame()"
-                data-ng-disabled="buzzer.disableBuzzer()"
+                data-ng-disabled="buzzer.toggleBuzzerDisabledness()"
                 data-ng-class="buzzer.enabledness()"
-                class="buzzer"></button>
+                class="buzzer-enabled"></button>
         
         <div style="color: white;">
             Debugging:

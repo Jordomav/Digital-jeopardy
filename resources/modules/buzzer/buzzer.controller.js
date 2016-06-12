@@ -11,9 +11,11 @@
             vm.firstPlayerWhoBuzzed = null;
             vm.thisPlayer = null;
             vm.thisGameJoinCode = null;
+            vm.enabledness = 'buzzer-enabled';
+                
+                
 
 
-            
             vm.pusher = new Pusher('4792c6294d140acf74ba'); // Pusher app key
 
             vm.init = function (thisPlayer, thisGameJoinCode) {
@@ -21,13 +23,19 @@
                 vm.thisPlayer = JSON.parse(thisPlayer);
                 vm.thisGameJoinCode = thisGameJoinCode;
 
-                vm.pusherChannel = vm.pusher.subscribe('buzz.' + vm.thisGameJoinCode);
-
-                vm.pusherChannel.bind('App\\Events\\PlayerHitBuzzer', function (buzzEvent) {
+                vm.pusherBuzzEventChannel = vm.pusher.subscribe('buzz.' + vm.thisGameJoinCode);
+                vm.pusherBuzzEventChannel.bind('App\\Events\\PlayerHitBuzzer', function (buzzEvent) {
 
                     vm.allPlayersWhoBuzzed.push(buzzEvent.player);
 
-                    vm.disableBuzzer();
+                    vm.toggleBuzzerDisabledness();
+                    $scope.$apply();
+                });
+                
+
+                vm.pusherResetEventChannel = vm.pusher.subscribe('buzzer-reset.' + vm.thisGameJoinCode);
+                vm.pusherResetEventChannel.bind('App\\Events\\ResetBuzzer', function (resetEvent) {
+                    vm.enableBuzzer();
                     $scope.$apply();
                 });
             };
@@ -48,9 +56,12 @@
             // (todo cont...) time a new question is selected.
             var resetAllBuzzers = function () {};
 
-            vm.disableBuzzer = function () {
-                if (vm.allPlayersWhoBuzzed.length > 0)
-                    return true;
+            vm.toggleBuzzerDisabledness = function () {
+                return vm.allPlayersWhoBuzzed.length > 0;
+            };
+
+            vm.enableBuzzer = function () {
+                vm.allPlayersWhoBuzzed = [];
             };
 
             // TODO: We need to broadcast this for the specific game the player is a part of.
@@ -60,8 +71,10 @@
 
             // Returns css class for gray buzzer to ng-class
             vm.enabledness = function () {
-                if (vm.disableBuzzer() === true) {
+                if (vm.toggleBuzzerDisabledness() === true) {
                     return 'buzzer-disabled';
+                } else {
+                    return 'buzzer-enabled';
                 }
             };
 
@@ -92,5 +105,11 @@
                 //
                 // vm.firstPlayerWhoBuzzed = firstPlayerWhoBuzzed;
             };
+
+            vm.resetBuzzers = function () {
+                console.log(vm.thisGameJoinCode);
+                $http.get('/reset-buzzer/' + vm.thisGameJoinCode);
+            };
+
         });
 }());

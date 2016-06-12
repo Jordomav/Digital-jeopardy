@@ -23,6 +23,11 @@
 
         </div>
 
+        <div data-ng-controller="buzzerController as buzzer" id="buzzer-reset" class="row text-right"
+             data-ng-init="buzzer.init(null, '{{ $game->join_code }}')">
+            <button data-ng-click="buzzer.resetBuzzers()">Reset Buzzers</button>
+        </div>
+
         {{-- Question Text Modal --}}
         <div data-ng-swipe-left="game.returnToGameboard()" class="custombox-modal-push" id="modal"
              tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

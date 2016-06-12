@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Game;
 use App\Events\PlayerHitBuzzer;
+use App\Events\ResetBuzzer;
+
 use App\Http\Requests;
 use Illuminate\Contracts\Auth\Guard;
 use DateTime;
@@ -31,7 +33,6 @@ class BuzzerController extends Controller
     {
         // Broadcast the event to all other players
         $user = view()->share('user', $auth->user());
-        $game = Game::where('join_code', $joinCode)->first();
 
         // Fire off event, pass along 'player' data -- we are including game_join_code with this to limit broadcast to
         // specific game.
@@ -47,7 +48,13 @@ class BuzzerController extends Controller
         // players hit the buzzer around the same time.
 //        $user->touch();
 //        $user->last_buzz = $user->updated_at->createFromFormat('U.u', microtime(true))->format('m-d-Y Hisu');
-//        $user->save();
+//        $user->save()
+    }
 
+
+    public function resetBuzzer($joinCode)
+    {
+        $game = Game::where('join_code', $joinCode)->first();
+        event(new ResetBuzzer(['join_code' => $joinCode ]));
     }
 }
