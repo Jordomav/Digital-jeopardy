@@ -12,17 +12,13 @@
 
                 @{{ category.title }}
 
-                <div data-ng-repeat="question in category.questions" class="value">
+                <div data-ng-repeat="question in category.questions" class="value"
+                     data-ng-click="game.resetBuzzers('{{ $game->join_code }}')">
+
                     <a data-ng-click="game.selectQuestion(question)"
                        data-ng-hide="question.selected">
 
-                        {{-- TODO: Don't do it this way!!!!  --}}
-                        <span data-ng-controller="buzzerController as buzzer"
-                              data-ng-init="buzzer.init(null, '{{ $game->join_code }}')"
-                              data-ng-click="buzzer.resetBuzzers()">
                             $@{{ question.money }}
-                        </span>
-
                     </a>
                 </div>
 

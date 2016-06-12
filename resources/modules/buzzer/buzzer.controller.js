@@ -108,10 +108,5 @@
                 // vm.firstPlayerWhoBuzzed = firstPlayerWhoBuzzed;
             };
 
-            vm.resetBuzzers = function () {
-                console.log(vm.thisGameJoinCode);
-                $http.get('/reset-buzzer/' + vm.thisGameJoinCode);
-            };
-
         });
 }());

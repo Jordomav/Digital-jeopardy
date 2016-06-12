@@ -8,7 +8,10 @@
 
             var vm = this;
 
-            vm.stuff = 'hi everyone';
+            vm.resetBuzzers = function (joinCode) {
+                console.log(joinCode);
+                $http.get('/reset-buzzer/' + joinCode);
+            };
 
 
         });
