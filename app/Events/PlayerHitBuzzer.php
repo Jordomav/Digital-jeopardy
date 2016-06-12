@@ -30,6 +30,7 @@ class PlayerHitBuzzer extends Event implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['buzzer-channel'];
+        $specificGameChannel = 'buzz.'.$this->player['game_join_code'];
+        return [$specificGameChannel];
     }
 }

@@ -12,23 +12,27 @@
             vm.thisPlayer = null;
             vm.thisGameJoinCode = null;
 
+
+            
+            vm.pusher = new Pusher('4792c6294d140acf74ba'); // Pusher app key
+
             vm.init = function (thisPlayer, thisGameJoinCode) {
                 console.log(thisPlayer, thisGameJoinCode);
                 vm.thisPlayer = JSON.parse(thisPlayer);
                 vm.thisGameJoinCode = thisGameJoinCode;
+
+                vm.pusherChannel = vm.pusher.subscribe('buzz.' + vm.thisGameJoinCode);
+
+                vm.pusherChannel.bind('App\\Events\\PlayerHitBuzzer', function (buzzEvent) {
+
+                    vm.allPlayersWhoBuzzed.push(buzzEvent.player);
+
+                    vm.disableBuzzer();
+                    $scope.$apply();
+                });
             };
 
-            
-            vm.pusher = new Pusher('4792c6294d140acf74ba'); // Pusher app key
-            vm.pusherChannel = vm.pusher.subscribe('buzzer-channel');
 
-            vm.pusherChannel.bind('App\\Events\\PlayerHitBuzzer', function (buzzEvent) {
-
-                vm.allPlayersWhoBuzzed.push(buzzEvent.player);
-
-                vm.disableBuzzer();
-                $scope.$apply();
-            });
 
             // Enable Pusher logs
             Pusher.log = function(message) {
