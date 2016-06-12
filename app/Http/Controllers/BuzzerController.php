@@ -32,6 +32,9 @@ class BuzzerController extends Controller
         // Broadcast the event to all other players
         $user = view()->share('user', $auth->user());
         $game = Game::where('join_code', $joinCode)->first();
+
+        // Fire off event, pass along 'player' data -- we are including game_join_code with this to limit broadcast to
+        // specific game.
         event(new PlayerHitBuzzer(
             [
                 'name' => $user->name,
