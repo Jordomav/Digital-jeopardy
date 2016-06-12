@@ -15,7 +15,14 @@
                 <div data-ng-repeat="question in category.questions" class="value">
                     <a data-ng-click="game.selectQuestion(question)"
                        data-ng-hide="question.selected">
-                        $@{{ question.money }}
+
+                        {{-- TODO: Don't do it this way!!!!  --}}
+                        <span data-ng-controller="buzzerController as buzzer"
+                              data-ng-init="buzzer.init(null, '{{ $game->join_code }}')"
+                              data-ng-click="buzzer.resetBuzzers()">
+                            $@{{ question.money }}
+                        </span>
+
                     </a>
                 </div>
 
@@ -23,10 +30,10 @@
 
         </div>
 
-        <div data-ng-controller="buzzerController as buzzer" id="buzzer-reset" class="row text-right"
-             data-ng-init="buzzer.init(null, '{{ $game->join_code }}')">
-            <button data-ng-click="buzzer.resetBuzzers()">Reset Buzzers</button>
-        </div>
+        {{--<div data-ng-controller="buzzerController as buzzer" id="buzzer-reset" class="row text-right"--}}
+             {{--data-ng-init="buzzer.init(null, '{{ $game->join_code }}')">--}}
+            {{--<button data-ng-click="buzzer.resetBuzzers()">Reset Buzzers</button>--}}
+        {{--</div>--}}
 
         {{-- Question Text Modal --}}
         <div data-ng-swipe-left="game.returnToGameboard()" class="custombox-modal-push" id="modal"
@@ -40,7 +47,7 @@
                             @{{ game.selectedQuestion.question }}
                         </span>
 
-                        <img data-ng-if="game.selectedQuestion.image" src="/img/@{{game.selectedQuestion.image}}"/>
+                        <img data-ng-if="game.selectedQuestion.image" src="/img/@{{ game.selectedQuestion.image }}"/>
 
                         <span data-ng-show="game.selectedQuestion.showAnswer">
                             @{{ game.selectedQuestion.answer }}

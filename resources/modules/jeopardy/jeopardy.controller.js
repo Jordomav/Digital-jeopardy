@@ -4,12 +4,14 @@
     'use strict';
 
     angular.module('jeopardyApp')
-        .controller('jeopardyController', function($http, Jeopardy){
+        .controller('jeopardyController', function($http, Jeopardy, Buzzer){
             
             var vm = this;
 
             vm.gameData = [];
             vm.categories = [];
+
+            console.log(Buzzer);
 
             vm.setGame = function (id) {
                 renderGameboard(id);
@@ -20,7 +22,7 @@
                     .then( function () {
                         console.log(Jeopardy.gameData);
                         vm.gameData = Jeopardy.gameData.game;
-                        populateCategories();
+                        populateCategories()
                     });
             }
 
@@ -59,6 +61,11 @@
 
             vm.buttonClick = function () {
                 console.log('Hello');
+            };
+
+
+            vm.resetBuzzers = function () {
+                console.log('reset from game controller');
             };
         });
 

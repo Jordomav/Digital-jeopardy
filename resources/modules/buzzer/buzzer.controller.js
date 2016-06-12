@@ -4,7 +4,7 @@
     'use strict';
 
     angular.module('jeopardyApp')
-        .controller('buzzerController', function ($scope, $http, $timeout) {
+        .controller('buzzerController', function ($scope, $http, Buzzer, $timeout) {
 
             var vm = this;
             vm.allPlayersWhoBuzzed = [];
