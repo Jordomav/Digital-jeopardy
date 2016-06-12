@@ -27,15 +27,16 @@ class BuzzerController extends Controller
         ]);
     }
 
-    public function buzz(Guard $auth, Game $game)
+    public function buzz(Guard $auth, $joinCode)
     {
         // Broadcast the event to all other players
         $user = view()->share('user', $auth->user());
+        $game = Game::where('join_code', $joinCode)->first();
         event(new PlayerHitBuzzer(
             [
                 'name' => $user->name,
                 'id' => $user->id,
-                'game_join_code' => $game->join_code
+                'game_join_code' => $joinCode
             ]
         ));
 

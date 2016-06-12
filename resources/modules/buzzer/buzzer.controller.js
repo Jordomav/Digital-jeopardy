@@ -10,12 +10,12 @@
             vm.allPlayersWhoBuzzed = [];
             vm.firstPlayerWhoBuzzed = null;
             vm.thisPlayer = null;
-            vm.thisGameId = null;
+            vm.thisGameJoinCode = null;
 
-            vm.init = function (thisPlayer, thisGameId) {
-                console.log(thisPlayer, thisGameId);
+            vm.init = function (thisPlayer, thisGameJoinCode) {
+                console.log(thisPlayer, thisGameJoinCode);
                 vm.thisPlayer = JSON.parse(thisPlayer);
-                vm.thisGameId = thisGameId;
+                vm.thisGameJoinCode = thisGameJoinCode;
             };
 
             
@@ -51,7 +51,7 @@
 
             // TODO: We need to broadcast this for the specific game the player is a part of.
             vm.broadcastToAllPlayersInGame = function () {
-                $http.get('/buzz/' + vm.thisGameId);
+                $http.get('/buzz/' + vm.thisGameJoinCode);
             };
 
             // Returns css class for gray buzzer to ng-class
