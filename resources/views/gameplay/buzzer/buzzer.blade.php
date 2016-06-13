@@ -11,13 +11,6 @@
                 data-ng-disabled="buzzer.toggleBuzzerDisabledness()"
                 data-ng-class="buzzer.enabledness()"
                 class="buzzer-enabled"></button>
-        
-        <div style="color: white;">
-            Debugging:
-            <h3 data-ng-if="buzzer.firstPlayerWhoBuzzed">@{{ buzzer.firstPlayerWhoBuzzed }}</h3>
-        </div>
-
-        <button data-ng-click="buzzer.getFirstPlayerWhoBuzzedIn()">Get First</button>
 
         <div class="white-text">
             <span>@{{ buzzer.thisPlayer.name }}: </span>

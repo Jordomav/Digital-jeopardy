@@ -27,6 +27,7 @@
                 vm.pusherBuzzEventChannel.bind('App\\Events\\PlayerHitBuzzer', function (buzzEvent) {
 
                     vm.allPlayersWhoBuzzed.push(buzzEvent.player);
+                    console.log(vm.allPlayersWhoBuzzed);
 
                     vm.toggleBuzzerDisabledness();
                     $scope.$apply();
@@ -85,6 +86,7 @@
             vm.getFirstPlayerWhoBuzzedIn = function () {
 
                 vm.firstPlayerWhoBuzzed = vm.allPlayersWhoBuzzed[0];
+                console.log(vm.firstPlayerWhoBuzzed);
 
                 // var min = Number.POSITIVE_INFINITY;
 

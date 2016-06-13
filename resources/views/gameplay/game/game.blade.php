@@ -49,8 +49,27 @@
                             @{{ game.selectedQuestion.answer }}
                         </span>
 
+                        <div>
+                            <button data-ng-click="game.returnToGameboard()" class="goBack">
+                                <i class="fa fa-arrow-circle-right"></i></button>
+                        </div>
+
                     </div>
-                    <button data-ng-click="game.returnToGameboard()" class="goBack"><i class="fa fa-arrow-circle-right"></i></button>
+
+                    <div data-ng-controller="buzzerController as buzzer"
+                         data-ng-init="buzzer.init(null, '{{ $game->join_code }}')"
+                         class="row">
+                        <div class="col-xs-4">
+                            <button data-ng-click="buzzer.getFirstPlayerWhoBuzzedIn()">
+                                Who buzzed first?
+                            </button>
+                        </div>
+                        <div data-ng-if="buzzer.firstPlayerWhoBuzzed" class="col-xs-4"
+                             style="color: white; font-size: 40px;">
+                                @{{ buzzer.firstPlayerWhoBuzzed.name }}
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
