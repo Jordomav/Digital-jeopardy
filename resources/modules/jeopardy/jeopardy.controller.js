@@ -59,8 +59,9 @@
             };
 
 
-            vm.returnToGameboard = function () {
+            vm.returnToGameboard = function (joinCode) {
                 Jeopardy.returnToGameboard();
+                vm.resetBuzzers(joinCode);
             };
 
 

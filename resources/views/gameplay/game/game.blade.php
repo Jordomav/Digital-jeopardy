@@ -12,8 +12,7 @@
 
                 @{{ category.title }}
 
-                <div data-ng-repeat="question in category.questions" class="value"
-                     data-ng-click="game.resetBuzzers('{{ $game->join_code }}')">
+                <div data-ng-repeat="question in category.questions" class="value">
 
                     <a data-ng-click="game.selectQuestion(question)"
                        data-ng-hide="question.selected">
@@ -50,7 +49,7 @@
                         </span>
 
                         <div>
-                            <button data-ng-click="game.returnToGameboard()" class="goBack">
+                            <button data-ng-click="game.returnToGameboard('{{ $game->join_code }}')" class="goBack">
                                 <i class="fa fa-arrow-circle-right"></i></button>
                         </div>
 

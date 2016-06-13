@@ -37,7 +37,6 @@
                 // vm.pusherResetEventChannel = vm.pusher.subscribe('buzzer-reset.' + vm.thisGameJoinCode);
                 vm.pusherResetEventChannel = vm.pusher.subscribe('buzzer-reset.' + vm.thisGameJoinCode);
                 vm.pusherResetEventChannel.bind('App\\Events\\ResetBuzzer', function (resetEvent) {
-                    console.log(resetEvent);
                     vm.enableBuzzer();
                     $scope.$apply();
                 });
@@ -52,19 +51,13 @@
                 }
             };
 
-
-
-
-            // TODO: make host controller that resets button for all players (when player answers incorrectly, and every
-            // (todo cont...) time a new question is selected.
-            var resetAllBuzzers = function () {};
-
             vm.toggleBuzzerDisabledness = function () {
                 return vm.allPlayersWhoBuzzed.length > 0;
             };
 
             vm.enableBuzzer = function () {
                 vm.allPlayersWhoBuzzed = [];
+                vm.firstPlayerWhoBuzzed = null;
             };
 
             // TODO: We need to broadcast this for the specific game the player is a part of.

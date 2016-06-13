@@ -29,8 +29,6 @@ class GameController extends Controller
         $game = Game::all()->where('join_code', $request->join_code)->first();
 
         return redirect('/buzzer/'.$game->id);
-
-        return json_encode($request->all());
     }
 
 
