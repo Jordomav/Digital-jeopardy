@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <body style="background-color: white;">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <div class="container">
         <div class="row">
             <h1>{{ $game->name }} Jeopardy</h1>

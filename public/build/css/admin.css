@@ -1,0 +1,44 @@
+.option-link {
+  background-color: #ffbb55;
+  border-radius: 8%;
+  margin: 3px;
+  padding: 3px 8px 3px;
+}
+.option-link:hover {
+  background-color: rgba(255, 187, 85, 0.45);
+}
+.major {
+  font-size: 16px;
+}
+.major a {
+  text-decoration: none;
+  color: #0b97c4;
+}
+.minor {
+  font-size: 14px;
+  background-color: #0aa9ff;
+}
+.minor:hover {
+  background-color: rgba(10, 169, 255, 0.24);
+}
+.minor a {
+  text-decoration: none;
+  color: #482d00;
+}
+.question {
+  border: 1px solid #8a8a8a;
+  padding: 16px;
+}
+.question .answer {
+  font-style: italic;
+}
+.question .list-number {
+  font-weight: bold;
+}
+.admin-input {
+  padding: 16px 0;
+}
+textarea {
+  padding: 2px;
+  font-weight: normal;
+}

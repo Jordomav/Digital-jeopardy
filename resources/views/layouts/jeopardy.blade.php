@@ -10,6 +10,7 @@
 <body>
 @yield('content')
 </body>
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 <script src="/build/js/deps.js"></script>
 <script src="/build/js/app.js"></script>
 </html>
