@@ -8,7 +8,7 @@ li {
   margin-top: 30px;
 }
 .main {
-  font-family: 'Fjalla One', sans-serif;
+  font-family: 'Fjalla Onsse', sans-serif;
   font-size: 175px;
   text-align: center;
   color: #FFD700;
@@ -99,7 +99,7 @@ li {
 .buzzer-container {
   padding: 40px;
 }
-.buzzer-container .buzzer {
+.buzzer-container .buzzer-enabled {
   background-color: red;
   width: 350px;
   height: 350px;
